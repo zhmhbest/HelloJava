@@ -11,11 +11,10 @@
 
 [![Initializr](images/spring_initializr.png)](packages/hello-maven-java-2.2.10-springweb.7z)
 
-解压`hello.zip`到当前目录
-
 ```batch
 mvn package
-@FOR /F "usebackq delims=" %f in (`DIR /B target\*.jar`) DO java -jar "target/%f"
+@FOR /F "usebackq" %f in (`DIR /B "target\*.jar"`) DO java -jar "target/%f"
+REM 127.0.0.1:8080
 ```
 
 ## Hello
