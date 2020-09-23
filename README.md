@@ -1,6 +1,4 @@
-# HelloSpring
+# HelloJavaWeb
 
-Spring、SpringMVC、SpringBoot学习笔记
-
-- [View Notes](https://zhmhbest.github.io/HelloSpring/notes/index.html)
-- [View Repository](https://github.com/zhmhbest/HelloSpring)
+- [View Notes](https://zhmhbest.github.io/HelloJavaWeb/notes/index.html)
+- [View Repository](https://github.com/zhmhbest/HelloJavaWeb)

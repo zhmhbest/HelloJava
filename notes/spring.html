@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>index</title>
+      <title>spring</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -263,13 +263,53 @@ pre[data-line] .line-highlight[data-end]:after {
       <div class="mume markdown-preview  ">
       <link rel="stylesheet" href="https://zhmhbest.gitee.io/hellomathematics/style/index.css">
 <script src="https://zhmhbest.gitee.io/hellomathematics/style/index.js"></script>
-<h1 class="mume-header" id="javawebhttpsgithubcomzhmhbesthellospring"><a href="https://github.com/zhmhbest/HelloSpring">JavaWeb</a></h1>
+<h1 class="mume-header" id="springindexhtml"><a href="./index.html">Spring</a></h1>
 
-<h2 class="mume-header" id="tomcattomcathtml"><a href="tomcat.html">Tomcat</a></h2>
+<ul>
+<li><a href="#springindexhtml">Spring</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAspring%E9%A1%B9%E7%9B%AE">&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Spring&#x9879;&#x76EE;</a></li>
+<li><a href="#hello">Hello</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAspring%E9%A1%B9%E7%9B%AE">&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Spring&#x9879;&#x76EE;</h2>
 
-<h2 class="mume-header" id="springspringhtml"><a href="spring.html">Spring</a></h2>
+<p>&#x767B;&#x5F55;<a href="https://start.spring.io/">Spring Initializr</a>&#x4E0B;&#x8F7D;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x6A21;&#x677F;&#x3002;</p>
+<p><a href="packages/hello-maven-java-2.2.10-springweb.7z"><img src="images/spring_initializr.png" alt="Initializr"></a></p>
+<pre data-role="codeBlock" data-info="batch" class="language-batch"><span class="token command"><span class="token keyword">mvn</span> package</span>
+<span class="token operator">@</span><span class="token command"><span class="token keyword">FOR</span> <span class="token parameter attr-name">/F</span> <span class="token string">&quot;usebackq&quot;</span> <span class="token variable">%f</span> in (`DIR <span class="token parameter attr-name">/B</span> <span class="token string">&quot;target\*.jar&quot;</span>`</span><span class="token punctuation">)</span> DO java -jar &quot;target/%f&quot;
+<span class="token comment">REM 127.0.0.1:8080</span>
+</pre><h2 class="mume-header" id="hello">Hello</h2>
 
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>hello<span class="token punctuation">.</span>controller</span><span class="token punctuation">;</span>
 
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">GetMapping</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">PostMapping</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">RestController</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http</span><span class="token punctuation">.</span><span class="token class-name">HttpServletRequest</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http</span><span class="token punctuation">.</span><span class="token class-name">HttpServletResponse</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloController</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/hello&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getHello</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">getHeader</span><span class="token punctuation">(</span><span class="token string">&quot;User-Agent&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        response<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">&quot;MyHeader&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Get&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Hello&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/hello&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">postHello</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">getHeader</span><span class="token punctuation">(</span><span class="token string">&quot;User-Agent&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        response<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">&quot;MyHeader&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Post&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Hello&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</pre>
       </div>
       
       
