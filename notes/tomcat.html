@@ -266,7 +266,84 @@ pre[data-line] .line-highlight[data-end]:after {
 <h1 class="mume-header" id="tomcatindexhtml"><a href="./index.html">Tomcat</a></h1>
 
 <ul>
-<li><a href="#tomcatindexhtml">Tomcat</a></li>
+<li><a href="#tomcatindexhtml">Tomcat</a>
+<ul>
+<li><a href="#tomcat%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">Tomcat&#x76EE;&#x5F55;&#x7ED3;&#x6784;</a></li>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2">&#x9879;&#x76EE;&#x90E8;&#x7F72;</a></li>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x7ED3;&#x6784;</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="tomcat%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">Tomcat&#x76EE;&#x5F55;&#x7ED3;&#x6784;</h2>
+
+<ul>
+<li>apache-tomcat
+<ul>
+<li>bin
+<ul>
+<li><code>startup.sh</code></li>
+<li><code>shutdown.sh</code></li>
+</ul>
+</li>
+<li>conf
+<ul>
+<li>Catalina
+<ul>
+<li>localhost
+<ul>
+<li><code>?.xml</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>server.xml</code></li>
+<li><code>tomcat-users.xml</code></li>
+</ul>
+</li>
+<li>lib</li>
+<li>logs</li>
+<li>temp</li>
+<li>webapps</li>
+<li>work</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2">&#x9879;&#x76EE;&#x90E8;&#x7F72;</h2>
+
+<p>&#x90E8;&#x7F72;&#x9879;&#x76EE;&#x6709;&#x4EE5;&#x4E0B;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>1&#x3001;&#x76F4;&#x63A5;&#x5C06;&#x9879;&#x76EE;&#x653E;&#x7F6E;&#x5230;<code>webapps</code>&#x76EE;&#x5F55;&#x4E0B;</p>
+<p>2&#x3001;&#x4FEE;&#x6539;<code>conf/server.xml</code>&#x6587;&#x4EF6;</p>
+<pre data-role="codeBlock" data-info="XML" class="language-xml">      <span class="token comment">&lt;!-- ... --&gt;</span>
+
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Host</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>localhost<span class="token punctuation">&quot;</span></span>  <span class="token attr-name">appBase</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>webapps<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">unpackWARs</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">autoDeploy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+        <span class="token comment">&lt;!-- &#x2193;&#x2193;&#x2193;&#x65B0;&#x589E;&#x90E8;&#x5206;&#x2193;&#x2193;&#x2193; --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span> <span class="token attr-name">docBase</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;<span class="token punctuation">&quot;</span></span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>&#x6620;&#x5C04;URL<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token comment">&lt;!-- &#x2191;&#x2191;&#x2191;&#x65B0;&#x589E;&#x90E8;&#x5206;&#x2191;&#x2191;&#x2191; --&gt;</span>
+
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Host</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Engine</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Service</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Server</span><span class="token punctuation">&gt;</span></span>
+</pre><p>3&#x3001;&#x65B0;&#x5EFA;<code>conf/Catalina/localhost/&#x6620;&#x5C04;URL.xml</code>&#x6587;&#x4EF6;</p>
+<pre data-role="codeBlock" data-info="XML" class="language-xml"><span class="token comment">&lt;!-- &#x2193;&#x2193;&#x2193;&#x65B0;&#x589E;&#x90E8;&#x5206;&#x2193;&#x2193;&#x2193; --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span> <span class="token attr-name">docBase</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token comment">&lt;!-- &#x2191;&#x2191;&#x2191;&#x65B0;&#x589E;&#x90E8;&#x5206;&#x2191;&#x2191;&#x2191; --&gt;</span>
+</pre><h2 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x7ED3;&#x6784;</h2>
+
+<ul>
+<li>ProjectRoot
+<ul>
+<li>WEB-INF
+<ul>
+<li>web.xml</li>
+<li>classes</li>
+<li>lib</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
       </div>
