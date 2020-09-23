@@ -9,7 +9,7 @@
 
 登录[Spring Initializr](https://start.spring.io/)下载一个项目模板。
 
-![Initializr](images/spring_initializr.png)
+[![Initializr](images/spring_initializr.png)](packages/hello-maven-java-2.2.10-springweb.7z)
 
 解压`hello.zip`到当前目录
 
@@ -31,20 +31,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-public class HelloWorldController {
+public class HelloController {
 
     @GetMapping("/hello")
-    public String getHello(HttpServletRequest request,  HttpServletResponse response) {
+    public String getHello(HttpServletRequest request, HttpServletResponse response) {
         System.out.println(request.getHeader("User-Agent"));
         response.setHeader("MyHeader", "Get");
-        return "Hello Get";
+        return "Hello";
     }
 
     @PostMapping("/hello")
-    public String postHello(HttpServletRequest request,  HttpServletResponse response) {
+    public String postHello(HttpServletRequest request, HttpServletResponse response) {
         System.out.println(request.getHeader("User-Agent"));
         response.setHeader("MyHeader", "Post");
-        return "Hello Post";
+        return "Hello";
     }
 
 }
