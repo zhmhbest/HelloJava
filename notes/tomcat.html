@@ -269,8 +269,19 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#tomcatindexhtml">Tomcat</a>
 <ul>
 <li><a href="#tomcat%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">Tomcat&#x76EE;&#x5F55;&#x7ED3;&#x6784;</a></li>
+<li><a href="#jee-web-project">JEE WEB Project</a>
+<ul>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84">&#x9879;&#x76EE;&#x7ED3;&#x6784;</a></li>
+<li><a href="#idea%E5%88%9B%E5%BB%BAweb%E9%A1%B9%E7%9B%AE">IDEA&#x521B;&#x5EFA;Web&#x9879;&#x76EE;</a></li>
 <li><a href="#%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2">&#x9879;&#x76EE;&#x90E8;&#x7F72;</a></li>
-<li><a href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x7ED3;&#x6784;</a></li>
+</ul>
+</li>
+<li><a href="#servlet">Servlet</a>
+<ul>
+<li><a href="#webxml%E6%A8%A1%E5%BC%8F">web.xml&#x6A21;&#x5F0F;</a></li>
+<li><a href="#annotation%E6%A8%A1%E5%BC%8F">annotation&#x6A21;&#x5F0F;</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -298,17 +309,47 @@ pre[data-line] .line-highlight[data-end]:after {
 </li>
 <li><code>server.xml</code></li>
 <li><code>tomcat-users.xml</code></li>
+<li><code>web.xml</code></li>
 </ul>
 </li>
-<li>lib</li>
+<li>lib
+<ul>
+<li><code>jsp-api.jar</code></li>
+<li><code>servlet-api.jar</code></li>
+<li><code>websocket-api.jar</code></li>
+<li>...</li>
+</ul>
+</li>
 <li>logs</li>
 <li>temp</li>
-<li>webapps</li>
+<li><span class="highlight">webapps</span></li>
 <li>work</li>
 </ul>
 </li>
 </ul>
-<h2 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2">&#x9879;&#x76EE;&#x90E8;&#x7F72;</h2>
+<h2 class="mume-header" id="jee-web-project">JEE WEB Project</h2>
+
+<h3 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84">&#x9879;&#x76EE;&#x7ED3;&#x6784;</h3>
+
+<ul>
+<li>WebappRoot
+<ul>
+<li>WEB-INF
+<ul>
+<li>web.xml</li>
+<li>classes</li>
+<li>lib</li>
+</ul>
+</li>
+<li><code>index.jsp</code> / <code>index.html</code></li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="idea%E5%88%9B%E5%BB%BAweb%E9%A1%B9%E7%9B%AE">IDEA&#x521B;&#x5EFA;Web&#x9879;&#x76EE;</h3>
+
+<p><img src="images/idea_jee_webapp.png" alt="create_webapp"></p>
+<h3 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2">&#x9879;&#x76EE;&#x90E8;&#x7F72;</h3>
 
 <p>&#x90E8;&#x7F72;&#x9879;&#x76EE;&#x6709;&#x4EE5;&#x4E0B;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x3002;</p>
 <p>1&#x3001;&#x76F4;&#x63A5;&#x5C06;&#x9879;&#x76EE;&#x653E;&#x7F6E;&#x5230;<code>webapps</code>&#x76EE;&#x5F55;&#x4E0B;</p>
@@ -319,33 +360,117 @@ pre[data-line] .line-highlight[data-end]:after {
             <span class="token attr-name">unpackWARs</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">autoDeploy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
 
         <span class="token comment">&lt;!-- &#x2193;&#x2193;&#x2193;&#x65B0;&#x589E;&#x90E8;&#x5206;&#x2193;&#x2193;&#x2193; --&gt;</span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span> <span class="token attr-name">docBase</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;<span class="token punctuation">&quot;</span></span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>&#x6620;&#x5C04;URL<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span> <span class="token attr-name">docBase</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;}<span class="token punctuation">&quot;</span></span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{&#x6620;&#x5C04;URL}<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
         <span class="token comment">&lt;!-- &#x2191;&#x2191;&#x2191;&#x65B0;&#x589E;&#x90E8;&#x5206;&#x2191;&#x2191;&#x2191; --&gt;</span>
 
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Host</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Engine</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Service</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Server</span><span class="token punctuation">&gt;</span></span>
-</pre><p>3&#x3001;&#x65B0;&#x5EFA;<code>conf/Catalina/localhost/&#x6620;&#x5C04;URL.xml</code>&#x6587;&#x4EF6;</p>
+</pre><p>3&#x3001;&#x65B0;&#x5EFA;<code>conf/Catalina/localhost/{&#x6620;&#x5C04;URL}.xml</code>&#x6587;&#x4EF6;</p>
 <pre data-role="codeBlock" data-info="XML" class="language-xml"><span class="token comment">&lt;!-- &#x2193;&#x2193;&#x2193;&#x65B0;&#x589E;&#x90E8;&#x5206;&#x2193;&#x2193;&#x2193; --&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span> <span class="token attr-name">docBase</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span> <span class="token attr-name">docBase</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;}<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
 <span class="token comment">&lt;!-- &#x2191;&#x2191;&#x2191;&#x65B0;&#x589E;&#x90E8;&#x5206;&#x2191;&#x2191;&#x2191; --&gt;</span>
-</pre><h2 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x7ED3;&#x6784;</h2>
+</pre><h2 class="mume-header" id="servlet">Servlet</h2>
 
-<ul>
-<li>ProjectRoot
-<ul>
-<li>WEB-INF
-<ul>
-<li>web.xml</li>
-<li>classes</li>
-<li>lib</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<p><a href="http://127.0.0.1:8080/hello">http://127.0.0.1:8080/hello</a></p>
+<h3 class="mume-header" id="webxml%E6%A8%A1%E5%BC%8F">web.xml&#x6A21;&#x5F0F;</h3>
 
+<p><code>src/com.example.HelloServlet</code></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>example</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet</span><span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span><span class="token class-name">IOException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span><span class="token class-name">PrintWriter</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">// &#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x5728;Servlet&#x4E2D;&#x5B9A;&#x4E49;&#x6210;&#x5458;&#x53D8;&#x91CF;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloServlet</span> <span class="token keyword">implements</span> <span class="token class-name">Servlet</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     * &#xFF08;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF09;&#x4EC5;&#x5728;Servlet&#x88AB;&#x521B;&#x5EFA;&#x65F6;&#x6267;&#x884C;
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token class-name">ServletConfig</span> servletConfig<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * &#xFF08;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF09;&#x6BCF;&#x6B21;Servlet&#x88AB;&#x8BBF;&#x95EE;&#x65F6;&#x6267;&#x884C;
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">service</span><span class="token punctuation">(</span><span class="token class-name">ServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">ServletResponse</span> response<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span><span class="token punctuation">,</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">PrintWriter</span> writer <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        writer<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hello Servlet&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        writer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * &#xFF08;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF09;&#x4EC5;&#x5728;Servlet&#x88AB;&#x9500;&#x6BC1;&#x65F6;&#xFF08;&#x670D;&#x52A1;&#x5668;&#x6B63;&#x5E38;&#x5173;&#x95ED;&#x65F6;&#xFF09;&#x6267;&#x884C;
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * &#x83B7;&#x53D6;Servlet&#x7684;Config&#x5BF9;&#x8C61;
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">ServletConfig</span> <span class="token function">getServletConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * &#x83B7;&#x53D6;Servlet&#x7684;&#x4FE1;&#x606F;
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getServletInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p><code>web/WEB-INF/web.xml</code></p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml">    <span class="token comment">&lt;!-- ... --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">&gt;</span></span>NameOf_HelloServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-class</span><span class="token punctuation">&gt;</span></span>com.example.HelloServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-class</span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!--
+          &lt;load-on-startup&gt;{value}&lt;/load-on-startup&gt;
+          &#x3010;&#x6307;&#x5B9A;Servlet&#x4F55;&#x65F6;&#x52A0;&#x8F7D;&#x3011;
+            {value} &lt; 0: &#x7B2C;&#x4E00;&#x6B21;&#x88AB;&#x8BBF;&#x95EE;&#x65F6;&#x521B;&#x5EFA;&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;
+            {value} &#x2265; 0: &#x670D;&#x52A1;&#x5668;&#x542F;&#x52A8;&#x65F6;&#x521B;&#x5EFA;
+        --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-mapping</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">&gt;</span></span>NameOf_HelloServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">&gt;</span></span>/hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-app</span><span class="token punctuation">&gt;</span></span>
+</pre><h3 class="mume-header" id="annotation%E6%A8%A1%E5%BC%8F">annotation&#x6A21;&#x5F0F;</h3>
+
+<p><code>src/com.example.HelloServlet</code></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>example</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet</span><span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">WebServlet</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span><span class="token class-name">IOException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span><span class="token class-name">PrintWriter</span><span class="token punctuation">;</span>
+
+<span class="token comment">//@WebServlet(urlPatterns = {&quot;/hello&quot;})</span>
+<span class="token annotation punctuation">@WebServlet</span><span class="token punctuation">(</span><span class="token string">&quot;/hello&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloServlet</span> <span class="token keyword">implements</span> <span class="token class-name">Servlet</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token class-name">ServletConfig</span> servletConfig<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">service</span><span class="token punctuation">(</span><span class="token class-name">ServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">ServletResponse</span> response<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span><span class="token punctuation">,</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">PrintWriter</span> writer <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        writer<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hello Servlet&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        writer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token class-name">ServletConfig</span> <span class="token function">getServletConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getServletInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre>
       </div>
       
       
