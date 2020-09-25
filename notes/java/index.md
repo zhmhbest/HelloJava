@@ -5,3 +5,16 @@
 
 [TOC]
 
+## Hello
+
+### [Hello](src/demoHello.java)
+
+### [Scanner](src/demoScanner.java)
+
+### [Random](src/demoRandom.java)
+
+### [Date](src/demoDate.java)
+
+## 容器
+
+### [ArrayList](src/demoArrayList.java)
