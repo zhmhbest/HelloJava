@@ -1,7 +1,7 @@
 /*
  * Hello
  */
-import java.lang.reflect.Array;
+//import java.lang.*;
 
 public class demoHello {
     public static String getType(Object ref) {
@@ -15,8 +15,8 @@ public class demoHello {
          * 取值范围: [-2^7, 2^7-1] = [-128, 127]
          */
         byte tmp_byte = 0;
-        System.out.println(
-                String.format("%s [-%x, %x]", getType(tmp_byte), Byte.MIN_VALUE, Byte.MAX_VALUE)
+        System.out.printf(
+                "%s [-%x, %x]\n", getType(tmp_byte), Byte.MIN_VALUE, Byte.MAX_VALUE
         );
 
         /*
@@ -24,8 +24,8 @@ public class demoHello {
          * 取值范围: [-2^15, 2^15-1] = [-32768, 32767]
          */
         short tmp_short = 0;
-        System.out.println(
-                String.format("%s [-%x, %x]", getType(tmp_short), Short.MIN_VALUE, Short.MAX_VALUE)
+        System.out.printf(
+                "%s [-%x, %x]\n", getType(tmp_short), Short.MIN_VALUE, Short.MAX_VALUE
         );
 
         /*
@@ -33,8 +33,8 @@ public class demoHello {
          * 取值范围: [-2^31, 2^31-1]
          */
         int tmp_int = 0;
-        System.out.println(
-                String.format("%s [-%x, %x]", getType(tmp_int), Integer.MIN_VALUE, Integer.MAX_VALUE)
+        System.out.printf(
+                "%s [-%x, %x]\n", getType(tmp_int), Integer.MIN_VALUE, Integer.MAX_VALUE
         );
 
         /*
@@ -42,24 +42,24 @@ public class demoHello {
          * 取值范围: [-2^63, 2^63-1]
          */
         long tmp_long = 0;
-        System.out.println(
-                String.format("%s [-%x, %x]", getType(tmp_long), Long.MIN_VALUE, Long.MAX_VALUE)
+        System.out.printf(
+                "%s [-%x, %x]\n", getType(tmp_long), Long.MIN_VALUE, Long.MAX_VALUE
         );
 
         /*
          * Float
          */
         float tmp_float = 0f;
-        System.out.println(
-                String.format("%s [-%e, %e]", getType(tmp_float), Float.MIN_VALUE, Float.MAX_VALUE)
+        System.out.printf(
+                "%s [-%e, %e]\n", getType(tmp_float), Float.MIN_VALUE, Float.MAX_VALUE
         );
 
         /*
          * Double
          */
         double tmp_double = 0d;
-        System.out.println(
-                String.format("%s [-%e, %e]", getType(tmp_double), Double.MIN_VALUE, Double.MAX_VALUE)
+        System.out.printf(
+                "%s [-%e, %e]\n", getType(tmp_double), Double.MIN_VALUE, Double.MAX_VALUE
         );
 
         /*
@@ -116,7 +116,7 @@ public class demoHello {
 
         // for:
         int[] arr = {1, 2, 3};
-        for (int i : arr ) {
+        for (int i : arr) {
             System.out.println(i);
         }
 

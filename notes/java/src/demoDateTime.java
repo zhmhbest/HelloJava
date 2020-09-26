@@ -1,13 +1,21 @@
-/*
- * ArrayList: 是一个长度不固定的数组
- */
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Calendar;
 
-public class demoDate {
+public class demoDateTime {
     public static void main(String[] args) {
+        /*
+         * Calendar
+         */
+        Calendar c = Calendar.getInstance();
+        System.out.printf(
+                "%d-%d-%d %d:%d:%d\n",
+                c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH),
+                c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), c.get(Calendar.SECOND)
+        );
+
         /*
          * 日期 -> 字符串
          */

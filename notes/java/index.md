@@ -9,12 +9,40 @@
 
 ### [Hello](src/demoHello.java)
 
+### [String](src/demoString.java)
+
 ### [Scanner](src/demoScanner.java)
 
 ### [Random](src/demoRandom.java)
 
-### [Date](src/demoDate.java)
+### [DateTime](src/demoDateTime.java)
 
-## 容器
+## [Stream](src/demoStream.java)
 
-### [ArrayList](src/demoArrayList.java)
+```java
+import java.io.*
+```
+
+![stream](images/stream.png)
+
+## Collection
+
+```java
+import java.util.Collection;
+```
+
+![collection](images/collection.png)
+
+### [List](src/demoList.java)
+
+### [Set](src/demoSet.java)
+
+### [Queue](src/demoQueue.java)
+
+## [Map](src/demoMap.java)
+
+```java
+import java.util.Map;
+```
+
+![map](images/map.png)
