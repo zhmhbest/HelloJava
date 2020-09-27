@@ -5,18 +5,35 @@
 
 [TOC]
 
-<!-- https://repo.spring.io/release/org/springframework/spring/ -->
+<!--  -->
 
-## 概论
+## 理解Spring
 
 ### 控制反转（Inversion of Control, IOC）
 
-把原本需要程序员自己创建和维护的Beans交由Spring管理。
+通过**XML配置**、**工厂模式**和**反射**等技术，把对象创建和调用过程交给Spring进行管理，将耦合度降到最低。
 
 ### 面向切面编程（Aspect Oriented Programming, AOP）
 
 交叉业务的编程问题即为面向切面编程。AOP的目标就是使交叉业务模块化。
 
+## Spring Framework
+
+[![spring_architecture](images/spring_architecture.png)](https://repo.spring.io/release/org/springframework/spring/)
+
+### Hello
+
+使用IDEA创建一个普通Java项目。
+
+添加**Spring Framework**的jar包路径到IDEA。
+
+![idea_add_spring](images/idea_add_spring.png)
+
+@import "demo/HelloSpring/src/bean.xml"
+
+@import "demo/HelloSpring/src/com/example/Hello.java"
+
+<!--
 ## Hello
 
 登录[Spring Initializr](https://start.spring.io/)下载一个项目模板。
@@ -58,3 +75,4 @@ mvn package
 @FOR /F "usebackq" %f in (`DIR /B "target\*.jar"`) DO java -jar "target/%f"
 REM 127.0.0.1:8080
 ```
+-->
