@@ -2,7 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/util
+                http://www.springframework.org/schema/util/spring-util.xsd
+        ">
 
     <!-- 默认执行class对象的无参构造方法 -->
     <bean id="user_first" class="com.example.User" />
@@ -63,7 +69,8 @@
     <!-- ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ -->
     <!-- ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ -->
 
-    <bean id="collect" class="com.example.Collection">
+    <!-- 注入Collection属性 -->
+    <bean id="collect_all" class="com.example.Collection">
         <property name="arr">
             <array>
                 <value>A</value><value>B</value>
@@ -86,6 +93,51 @@
                 <value>B</value><value>C</value>
             </set>
         </property>
+        <property name="obj">
+            <array>
+                <ref bean="obj1"/>
+                <ref bean="obj2"/>
+            </array>
+        </property>
     </bean>
+    <bean id="obj1" class="java.lang.String">
+        <constructor-arg index="0" value="ABC"/>
+    </bean>
+    <bean id="obj2" class="java.lang.String">
+        <constructor-arg index="0" value="XYZ"/>
+    </bean>
+
+    <!-- List注入 -->
+    <util:list id="my_list">
+        <value>地球</value>
+        <value>太阳系</value>
+        <value>银河系</value>
+    </util:list>
+    <bean id="collect_list" class="com.example.Collection">
+        <property name="list" ref="my_list"/>
+    </bean>
+
+    <!-- ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ -->
+    <!-- ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ -->
+
+    <!-- 工厂bean -->
+    <bean id="factory" class="com.example.Factory" />
+
+    <!-- ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ -->
+    <!-- ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ -->
+
+    <!--
+        scope="singleton" 单实例（默认）
+        scope="prototype" 多实例（获取时实时创建）
+        scope="request"
+        scope="session"
+    -->
+    <bean id="prototype" class="java.lang.Object" scope="prototype"/>
+
+    <!-- ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ -->
+    <!-- ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ ■■■■■■■■■■■■■■■■ -->
+
+    <!-- 生命周期 -->
+    <bean id="life" class="com.example.Life" init-method="init" destroy-method="destroy"/>
 
 </beans>

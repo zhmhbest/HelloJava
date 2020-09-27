@@ -7,7 +7,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext; // �
 
 public class Hello {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
         User user = null;
         String[] beans = {
                 "user_first",
@@ -24,13 +24,37 @@ public class Hello {
             user.introduceSelf();
         }
 
-        Collection collect = context.getBean("collect", Collection.class);
+        Collection collect = context.getBean("collect_all", Collection.class);
         for(String item: collect.getArr()) {
             System.out.printf("%s ", item);
-        }
-        System.out.print('\n');
+        } System.out.print('\n');
+        for(Object item: collect.getObj()) {
+            System.out.printf("%s ", item);
+        } System.out.print('\n');
         System.out.println(collect.getList());
         System.out.println(collect.getMap());
         System.out.println(collect.getSet());
+        System.out.println(
+                context.getBean("collect_list", Collection.class).getList()
+        );
+
+        // 工厂Bean
+        System.out.println(
+                context.getBean("factory", String.class)
+        );
+
+        // 多实例
+        System.out.println(
+                context.getBean("prototype", Object.class)
+                ==
+                context.getBean("prototype", Object.class)
+        );
+
+        // 生命周期
+        System.out.println(
+                context.getBean("life", Life.class)
+        );
+
+        context.close();
     }
 }

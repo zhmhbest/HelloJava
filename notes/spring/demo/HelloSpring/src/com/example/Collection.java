@@ -5,10 +5,19 @@ import java.util.Map;
 import java.util.Set;
 
 public class Collection {
+    protected Object[] obj;
     protected String[] arr;
     protected List<String> list;
     protected Map<String, String> map;
     protected Set<String> set;
+
+    public Object[] getObj() {
+        return obj;
+    }
+
+    public void setObj(Object[] obj) {
+        this.obj = obj;
+    }
 
     public String[] getArr() {
         return arr;
