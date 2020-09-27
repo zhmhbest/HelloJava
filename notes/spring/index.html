@@ -276,7 +276,7 @@ pre[data-line] .line-highlight[data-end]:after {
 </li>
 <li><a href="#spring-framework">Spring Framework</a>
 <ul>
-<li><a href="#hello">Hello</a></li>
+<li><a href="#hellospring">HelloSpring</a></li>
 </ul>
 </li>
 </ul>
@@ -293,34 +293,26 @@ pre[data-line] .line-highlight[data-end]:after {
 <h2 class="mume-header" id="spring-framework">Spring Framework</h2>
 
 <p><a href="https://repo.spring.io/release/org/springframework/spring/"><img src="images/spring_architecture.png" alt="spring_architecture"></a></p>
-<h3 class="mume-header" id="hello">Hello</h3>
+<h3 class="mume-header" id="hellospring">HelloSpring</h3>
 
 <p>&#x4F7F;&#x7528;IDEA&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x666E;&#x901A;Java&#x9879;&#x76EE;&#x3002;</p>
 <p>&#x6DFB;&#x52A0;<strong>Spring Framework</strong>&#x7684;jar&#x5305;&#x8DEF;&#x5F84;&#x5230;IDEA&#x3002;</p>
 <p><img src="images/idea_add_spring.png" alt="idea_add_spring"></p>
-<pre data-role="codeBlock" data-info="xml" class="language-xml"><span class="token prolog">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://www.springframework.org/schema/beans<span class="token punctuation">&quot;</span></span>
-       <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">&quot;</span></span>
-       <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>hello<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>com.example.Hello<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">&gt;</span></span>
-</pre><pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>example</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context</span><span class="token punctuation">.</span><span class="token class-name">ApplicationContext</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>support</span><span class="token punctuation">.</span><span class="token class-name">ClassPathXmlApplicationContext</span><span class="token punctuation">;</span>
+<ul>
+<li>src
+<ul>
+<li><a href="demo/HelloSpring/src/config.xml">config.xml</a></li>
+<li>com.example
+<ul>
+<li><a href="demo/HelloSpring/src/com/example/User.java">User.java</a></li>
+<li><a href="demo/HelloSpring/src/com/example/Collection.java">Collection.java</a></li>
+<li><a href="demo/HelloSpring/src/com/example/Hello.java">Hello.java</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Hello</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">ApplicationContext</span> context <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ClassPathXmlApplicationContext</span><span class="token punctuation">(</span><span class="token string">&quot;bean.xml&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Hello</span> hello <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Hello</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        hello<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-</pre>
       </div>
       
       

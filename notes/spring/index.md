@@ -21,7 +21,7 @@
 
 [![spring_architecture](images/spring_architecture.png)](https://repo.spring.io/release/org/springframework/spring/)
 
-### Hello
+### HelloSpring
 
 使用IDEA创建一个普通Java项目。
 
@@ -29,9 +29,12 @@
 
 ![idea_add_spring](images/idea_add_spring.png)
 
-@import "demo/HelloSpring/src/bean.xml"
-
-@import "demo/HelloSpring/src/com/example/Hello.java"
+- src
+  - [config.xml](demo/HelloSpring/src/config.xml)
+  - com.example
+    - [User.java](demo/HelloSpring/src/com/example/User.java)
+    - [Collection.java](demo/HelloSpring/src/com/example/Collection.java)
+    - [Hello.java](demo/HelloSpring/src/com/example/Hello.java)
 
 <!--
 ## Hello
