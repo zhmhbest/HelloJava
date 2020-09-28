@@ -80,7 +80,7 @@
 
 [http://127.0.0.1:8080/hello](http://127.0.0.1:8080/hello)
 
-### web.xml模式
+### Xml模式
 
 `src/com.example.HelloServlet`
 
@@ -160,7 +160,7 @@ public class HelloServlet implements Servlet {
 </web-app>
 ```
 
-### annotation模式
+### Annotation模式
 
 `src/com.example.HelloServlet`
 

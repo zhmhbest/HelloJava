@@ -17,17 +17,17 @@
 
 交叉业务的编程问题即为面向切面编程。AOP的目标就是使交叉业务模块化。
 
-## Hello
+## HelloSpring
 
-### HelloSpring
+>创建对象提供的注解：`@Component`、`@Service`、`@Controller`、`@Repository`
 
 添加[**Spring Framework**](https://repo.spring.io/release/org/springframework/spring/)的jar包路径到IDEA项目依赖。
 
 ![idea_add_spring](images/idea_add_spring.png)
 
-<!-- [HelloSpringIOC](demo/HelloSpringIOC) -->
 
-### HelloSpringMVC
+
+## HelloSpringMVC
 
 登录[Spring Initializr](https://start.spring.io/)下载一个项目模板。
 
