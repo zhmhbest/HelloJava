@@ -21,21 +21,17 @@
 
 ### HelloSpring
 
-使用IDEA创建一个普通Java项目。
-
 添加[**Spring Framework**](https://repo.spring.io/release/org/springframework/spring/)的jar包路径到IDEA项目依赖。
 
 ![idea_add_spring](images/idea_add_spring.png)
 
+<!-- [HelloSpringIOC](demo/HelloSpringIOC) -->
 
-
-
-<!--
 ### HelloSpringMVC
 
 登录[Spring Initializr](https://start.spring.io/)下载一个项目模板。
 
-[![Initializr](images/spring_initializr.png)](packages/hello-maven-java-2.2.10-springweb.7z)
+![Initializr](images/spring_initializr.png)
 
 ```java
 package com.example.hello.controller;
@@ -72,4 +68,3 @@ mvn package
 @FOR /F "usebackq" %f in (`DIR /B "target\*.jar"`) DO java -jar "target/%f"
 REM 127.0.0.1:8080
 ```
--->
