@@ -1,0 +1,31 @@
+
+- src
+  - com.example
+    - [Employee.java](demo/ioc/src/com/example/Employee.java)
+    - [Department.java](demo/ioc/src/com/example/Department.java)
+    - [Collection.java](demo/ioc/src/com/example/Collection.java)
+    - [Factory.java](demo/ioc/src/com/example/Factory.java)
+    - [Life.java](demo/ioc/src/com/example/Life.java)
+    - annotation
+      - [FirstAnnotation.java](demo/ioc/src/com/example/annotation/FirstAnnotation.java)
+      - [Name.java](demo/ioc/src/com/example/annotation/Name.java)
+      - [Gender.java](demo/ioc/src/com/example/annotation/Gender.java)
+      - [Age.java](demo/ioc/src/com/example/annotation/Age.java)
+  - com.test
+    - [HelloConstruct.java](demo/ioc/src/com/test/HelloConstruct.java)
+    - [HelloSpecial.java](demo/ioc/src/com/test/HelloSpecial.java)
+    - [HelloCollection.java](demo/ioc/src/com/test/HelloCollection.java)
+    - [HelloAuto.java](demo/ioc/src/com/test/HelloAuto.java)
+    - [HelloFactory.java](demo/ioc/src/com/test/HelloFactory.java)
+    - [HelloLife.java](demo/ioc/src/com/test/HelloLife.java)
+    - [HelloPrototype.java](demo/ioc/src/com/test/HelloPrototype.java)
+    - [HelloAnnotation.java](demo/ioc/src/com/test/HelloAnnotation.java)
+    - [HelloSpringConfig.java](demo/ioc/src/com/test/HelloSpringConfig.java)
+  - [bean_construct.xml](demo/ioc/src/bean_construct.xml)
+  - [bean_special.xml](demo/ioc/src/bean_special.xml)
+  - [bean_collection.xml](demo/ioc/src/bean_collection.xml)
+  - [bean_auto.xml](demo/ioc/src/bean_auto.xml)
+  - [bean_factory.xml](demo/ioc/src/bean_factory.xml)
+  - [bean_life.xml](demo/ioc/src/bean_life.xml)
+  - [bean_prototype.xml](demo/ioc/src/bean_prototype.xml)
+  - [bean_annotation.xml](demo/ioc/src/bean_annotation.xml)
