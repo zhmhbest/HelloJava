@@ -27,14 +27,8 @@
 
 ![idea_add_spring](images/idea_add_spring.png)
 
-- src
-  - [config.xml](demo/HelloSpring/src/config.xml)
-  - com.example
-    - [User.java](demo/HelloSpring/src/com/example/User.java)
-    - [Collection.java](demo/HelloSpring/src/com/example/Collection.java)
-    - [Factory.java](demo/HelloSpring/src/com/example/Factory.java)
-    - [Life.java](demo/HelloSpring/src/com/example/Life.java)
-    - [Hello.java](demo/HelloSpring/src/com/example/Hello.java)
+
+
 
 <!--
 ### HelloSpringMVC

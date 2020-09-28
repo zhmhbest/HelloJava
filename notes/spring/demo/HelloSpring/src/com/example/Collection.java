@@ -1,5 +1,6 @@
 package com.example;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -10,6 +11,18 @@ public class Collection {
     protected List<String> list;
     protected Map<String, String> map;
     protected Set<String> set;
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Collection{obj=%s, arr=%s, list=%s, map=%s, set=%s}",
+                Arrays.toString(this.obj),
+                Arrays.toString(this.arr),
+                this.list,
+                this.map,
+                this.set
+        );
+    }
 
     public Object[] getObj() {
         return obj;
