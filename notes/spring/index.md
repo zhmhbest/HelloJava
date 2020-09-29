@@ -7,7 +7,7 @@
 
 ## 理解Spring
 
-![spring_architecture](images/spring_architecture.png)
+[![spring_architecture](images/spring_architecture.png)](https://repo1.maven.org/maven2/springframework/)
 
 ### 控制反转（Inversion of Control, IOC）
 
@@ -27,50 +27,42 @@
 
 ### IOC
 
+#### 例
+
 @import "demo/ioc/README.md"
 
 ### AOP
 
+有接口使用`JDK`动态代理；没有接口使用`CGLIB`动态代理（在子类中增强父类方法）。
+
+在Spring中使用`AspectJ`(`spring-aspects`)进行AOP操作。
+
+- [`cglib`](https://repo1.maven.org/maven2/cglib/cglib/)
+- [`aopalliance`](https://repo1.maven.org/maven2/aopalliance/aopalliance/)
+- [`aspectjweaver`](https://repo1.maven.org/maven2/aspectj/aspectjweaver/)
+
+**连接点**
+
+可以被增强的方法。
+
+**切入点**
+
+实际被增强的方法。
+
+**通知**
+
+增强的逻辑部分。常见的有
+
+- 前置通知
+- 返回通知
+- 环绕通知
+- 最终通知
+- 异常通知
+
+**切面**
+
+把通知应用到切入点的过程。
+
+#### 例
+
 @import "demo/aop/README.md"
-
-## HelloSpringMVC
-
-登录[Spring Initializr](https://start.spring.io/)下载一个项目模板。
-
-![Initializr](images/spring_initializr.png)
-
-```java
-package com.example.hello.controller;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-@RestController
-public class HelloController {
-
-    @GetMapping("/hello")
-    public String getHello(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println(request.getHeader("User-Agent"));
-        response.setHeader("MyHeader", "Get");
-        return "Hello";
-    }
-
-    @PostMapping("/hello")
-    public String postHello(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println(request.getHeader("User-Agent"));
-        response.setHeader("MyHeader", "Post");
-        return "Hello";
-    }
-
-}
-```
-
-```batch
-mvn package
-@FOR /F "usebackq" %f in (`DIR /B "target\*.jar"`) DO java -jar "target/%f"
-REM 127.0.0.1:8080
-```
