@@ -2,33 +2,9 @@ import java.util.Map;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-/*
- * HashMap
- * 根据键的Hash值存储数据
- * 遍历时取得数据的顺序是完全随机的
- * 最多只允许一条记录的Key为null，多条Value为null
- * 不支持线程的同步
- */
 import java.util.HashMap;
-
-/*
- * LinkedHashMap
- * 保存了记录的插入顺序
- * 一般情况下遍历时会比HashMap慢
- */
 import java.util.LinkedHashMap;
-
-/*
- * TreeMap
- * 根据键值排序，默认按键值的升序排序
- */
 import java.util.TreeMap;
-
-/*
- * Hashtable
- * 无论Key还是Value都不能为null
- * 线程安全的
- */
 import java.util.Hashtable;
 
 public class demoMap {

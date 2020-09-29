@@ -1,13 +1,7 @@
 import java.util.Set;
-
-/*
- * HashSet
- * 基于HashMap实现的不允许有重复元素的集合
- * 非线程安全的
- */
 import java.util.HashSet;
 
-public class demoSet {
+public class demoCollectionSet {
     public static void main(String[] args) {
         HashSet<String> buffer = new HashSet<String>();
         buffer.add("Java");

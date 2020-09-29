@@ -1,31 +1,10 @@
 import java.util.List;
 import java.util.Iterator;
-
-/*
- * ArrayList
- * 长度不固定的数组，内部通过数组实现
- * 适合随机查找和遍历，不适合插入和删除
- * 内存不够时默认扩展(50%+1)个
- */
 import java.util.ArrayList;
+// import java.util.Vector;
+// import java.util.LinkedList;
 
-/*
- * Vector
- * 长度不固定的支持线程同步的数组，内部通过数组实现
- * 访问速度慢于ArrayList
- * 内存不够时默认扩展1倍
- */
-import java.util.Vector;
-
-/*
- * LinkedList
- * 链表结构存储数据
- * 适合动态插入和删除，随机访问速度较慢
- * 提供操作表头、表尾的方法，可以当作堆栈、队列和双向队列使用
- */
-import java.util.LinkedList;
-
-public class demoList {
+public class demoCollectionList {
     public static void main(String[] args) {
         List<String> buffer = new ArrayList<String>();
         // List<String> buffer = new Vector<String>();
