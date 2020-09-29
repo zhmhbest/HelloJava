@@ -1,4 +1,7 @@
-# HelloSpringMVC
+<link rel="stylesheet" href="https://zhmhbest.gitee.io/hellomathematics/style/index.css">
+<script src="https://zhmhbest.gitee.io/hellomathematics/style/index.js"></script>
+
+# [SpringWeb](../index.html)
 
 登录[Spring Initializr](https://start.spring.io/)下载一个项目模板。
 
