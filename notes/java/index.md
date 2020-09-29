@@ -7,42 +7,28 @@
 
 ## Hello
 
-### [Hello](src/demoHello.java)
+- [`Hello.java`](src/demoHello.java)
+- [`String.java`](src/demoString.java)
+- [`Scanner.java`](src/demoScanner.java)
+- [`Random.java`](src/demoRandom.java)
+- [`DateTime.java`](src/demoDateTime.java)
 
-### [String](src/demoString.java)
-
-### [Scanner](src/demoScanner.java)
-
-### [Random](src/demoRandom.java)
-
-### [DateTime](src/demoDateTime.java)
-
-## [Stream](src/demoStream.java)
-
-```java
-import java.io.*
-```
+## Stream
 
 ![stream](images/stream.png)
 
-## Collection
+- [`Stream.java`](src/demoStream.java)
 
-```java
-import java.util.Collection;
-```
+## Collection
 
 ![collection](images/collection.png)
 
-### [List](src/demoList.java)
+- [List](src/demoList.java)
+- [Set](src/demoSet.java)
+- [Queue](src/demoQueue.java)
 
-### [Set](src/demoSet.java)
-
-### [Queue](src/demoQueue.java)
-
-## [Map](src/demoMap.java)
-
-```java
-import java.util.Map;
-```
+## Map
 
 ![map](images/map.png)
+
+- [Map](src/demoMap.java)
