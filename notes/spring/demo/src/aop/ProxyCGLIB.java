@@ -1,12 +1,38 @@
 package aop;
-
 import java.lang.reflect.Method;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
+import net.sf.cglib.proxy.Enhancer;
 
 public class ProxyCGLIB {
-    public static void main(String[] args) {
-
+    static class User {
+        public void sayHello(String name) {
+            System.out.printf("%s: Hello\n", name);
+        }
+        public void sayGoodbye(String name) {
+            System.out.printf("%s: Goodbye\n", name);
+        }
+    }
+    static class UserInterceptor implements MethodInterceptor {
+        @Override
+        public Object intercept(
+                Object obj, Method method, Object[] params, MethodProxy proxy
+        ) throws Throwable {
+            String name = method.getName();
+            System.out.printf("====Before : %s\n", name);
+            Object result = proxy.invokeSuper(obj, params);
+            System.out.printf("====After  : %s\n", name);
+            return result;
+        }
     }
 
+    public static void main(String[] args) {
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(User.class);
+        enhancer.setCallback(new UserInterceptor());
+        User user = (User)enhancer.create();
+        System.out.println(user);
+        user.sayHello("Java");
+        user.sayGoodbye("Python");
+    }
 }

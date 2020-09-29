@@ -32,10 +32,11 @@
   - [`Holder4Object.java`](demo/src/ioc/Holder4Object.java)
   - [`Holder4Collection.java`](demo/src/ioc/Holder4Collection.java)
   - [`Holder4HS.java`](demo/src/ioc/Holder4HS.java)
-    - [`annotation/User.java`](demo/src/ioc/annotation/User.java)
-    - [`annotation/Name.java`](demo/src/ioc/annotation/Name.java)
-    - [`annotation/Gender.java`](demo/src/ioc/annotation/Gender.java)
-    - [`annotation/Age.java`](demo/src/ioc/annotation/Age.java)
+  - annotation
+    - [`User.java`](demo/src/ioc/annotation/User.java)
+    - [`Name.java`](demo/src/ioc/annotation/Name.java)
+    - [`Gender.java`](demo/src/ioc/annotation/Gender.java)
+    - [`Age.java`](demo/src/ioc/annotation/Age.java)
 - 属性注入
   - [`TestBeanConfig.java`](demo/src/ioc/TestBeanConfig.java)
   - [`demoAttributeInjection.java`](demo/src/ioc/demoAttributeInjection.java)
@@ -68,13 +69,14 @@
 在Spring中使用AspectJ（spring-aspects）进行AOP操作。
 
 - [cglib](https://repo1.maven.org/maven2/cglib/cglib/)
+- [asm](https://repo1.maven.org/maven2/asm/asm/)
 - [aopalliance](https://repo1.maven.org/maven2/aopalliance/aopalliance/)
 - [aspectjweaver](https://repo1.maven.org/maven2/aspectj/aspectjweaver/)
 
 ### 实现方式
 
 - 有接口使用[`JDK`](demo/src/aop/ProxyJDK.java)动态代理；
-- 没有接口使用[`CGLIB`](demo/src/aop/ProxyCGLIB.java)动态代理（在子类中增强父类方法）。
+- 没有接口使用[`CGLIB`](demo/src/aop/ProxyCGLIB.java)（<span class='hint'>cglib2.2 + asm3.0</span>）动态代理（在子类中增强父类方法）。
 
 ### 基本概念
 
