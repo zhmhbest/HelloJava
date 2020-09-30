@@ -64,19 +64,24 @@
 
 ## AOP
 
-### 需要的依赖
+### AOP实现方式
+
+#### 需要的依赖
 
 @import "dependency.md"
 
-### AOP实现方式
+#### 测试用类
+
+- [`UserInterface.java`](demo/src/aop/UserInterface.java)
+- [`User.java`](demo/src/aop/User.java)。
+
+#### 实现方式
 
 - 有接口使用[`JDK`](demo/src/aop/demoProxyJDK.java)动态代理；
 - 没有接口使用[`CGLIB`](demo/src/aop/demoProxyCGLIB.java)动态代理（在子类中增强父类方法）。
 
 在Spring中使用AspectJ进行AOP操作。
 
-- [`UserInterface.java`](demo/src/aop/UserInterface.java)
-- [`User.java`](demo/src/aop/User.java)
 - [`UserProxy.java`](demo/src/aop/annotation/UserProxy.java)
 - [`demo.java`](demo/src/aop/demoProxySpring.java)
 - [`demo.xml`](demo/src/aop/demoProxySpring.xml)
@@ -95,11 +100,11 @@
 
 增强的逻辑部分，常见的有
 
-- 前置通知
-- 返回通知
-- 环绕通知
-- 最终通知
-- 异常通知
+- 前置通知：`@Before`
+- 返回通知：`@After`
+- 环绕通知：`@Around`
+- 最终通知：`@AfterReturning`
+- 异常通知：`@AfterThrowing`
 
 #### 切面
 
