@@ -64,28 +64,6 @@
 
 ## AOP
 
-### AOP实现方式
-
-#### 需要的依赖
-
-@import "dependency.md"
-
-#### 测试用类
-
-- [`UserInterface.java`](demo/src/aop/UserInterface.java)
-- [`User.java`](demo/src/aop/User.java)。
-
-#### 实现方式
-
-- 有接口使用[`JDK`](demo/src/aop/demoProxyJDK.java)动态代理；
-- 没有接口使用[`CGLIB`](demo/src/aop/demoProxyCGLIB.java)动态代理（在子类中增强父类方法）。
-
-在Spring中使用AspectJ进行AOP操作。
-
-- [`UserProxy.java`](demo/src/aop/annotation/UserProxy.java)
-- [`demo.java`](demo/src/aop/demoProxySpring.java)
-- [`demo.xml`](demo/src/aop/demoProxySpring.xml)
-
 ### 基本概念
 
 #### 连接点
@@ -109,3 +87,25 @@
 #### 切面
 
 把通知应用到切入点的过程。
+
+### AOP实现方式
+
+#### 需要的依赖
+
+@import "dependency.md"
+
+#### 测试用类
+
+- [`UserInterface.java`](demo/src/aop/UserInterface.java)
+- [`User.java`](demo/src/aop/User.java)
+
+#### 实现方式
+
+- 有接口使用[`JDK`](demo/src/aop/demoProxyJDK.java)动态代理；
+- 没有接口使用[`CGLIB`](demo/src/aop/demoProxyCGLIB.java)动态代理（在子类中增强父类方法）。
+
+在Spring中使用AspectJ进行AOP操作。
+
+- [`UserProxy.java`](demo/src/aop/annotation/UserProxy.java)
+- [`demo.java`](demo/src/aop/demoProxySpring.java)
+- [`demo.xml`](demo/src/aop/demoProxySpring.xml)
