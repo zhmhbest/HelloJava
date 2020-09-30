@@ -1,0 +1,5 @@
+- [`spring-framework-5.2.6`](https://repo.spring.io/release/org/springframework/spring/5.2.6.RELEASE/spring-5.2.6.RELEASE-dist.zip)
+- [`cglib-2.2.jar`](https://maven.aliyun.com/repository/public/cglib/cglib/2.2/cglib-2.2.jar)
+- [`asm-3.1.jar`](https://maven.aliyun.com/repository/public/asm/asm/3.1/asm-3.1.jar)
+- [`aopalliance-1.0.jar`](https://maven.aliyun.com/repository/public/aopalliance/aopalliance/1.0/aopalliance-1.0.jar)
+- [`aspectjweaver-1.6.8.jar`](https://maven.aliyun.com/repository/public/org/aspectj/aspectjweaver/1.6.8/aspectjweaver-1.6.8.jar)
