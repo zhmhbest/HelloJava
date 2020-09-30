@@ -4,15 +4,7 @@ import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 import net.sf.cglib.proxy.Enhancer;
 
-public class ProxyCGLIB {
-    static class User {
-        public void sayHello(String name) {
-            System.out.printf("%s: Hello\n", name);
-        }
-        public void sayGoodbye(String name) {
-            System.out.printf("%s: Goodbye\n", name);
-        }
-    }
+public class demoProxyCGLIB {
     static class UserInterceptor implements MethodInterceptor {
         @Override
         public Object intercept(

@@ -25,13 +25,17 @@ public class TestBeanConfig {
         printBeans(context);
     }
 
+    public static ApplicationContext getXML(Class obj) {
+        String configLocation = obj.getName().replace(".", "/") + ".xml";
+        System.out.printf("configLocation = %s\n", configLocation);
+        ApplicationContext context = new ClassPathXmlApplicationContext(configLocation);
+        return context;
+    }
+
     /**
      * XML配置
      */
     public static void loadXML(Class obj) {
-        String configLocation = obj.getName().replace(".", "/") + ".xml";
-        System.out.printf("configLocation = %s\n", configLocation);
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(configLocation);
-        printBeans(context);
+        printBeans(getXML(obj));
     }
 }

@@ -278,8 +278,8 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#ioc">IOC</a></li>
 <li><a href="#aop">AOP</a>
 <ul>
-<li><a href="#%E4%BE%9D%E8%B5%96">&#x4F9D;&#x8D56;</a></li>
-<li><a href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</a></li>
+<li><a href="#%E9%9C%80%E8%A6%81%E7%9A%84%E4%BE%9D%E8%B5%96">&#x9700;&#x8981;&#x7684;&#x4F9D;&#x8D56;</a></li>
+<li><a href="#aop%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">AOP&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</a></li>
 <li><a href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">&#x57FA;&#x672C;&#x6982;&#x5FF5;</a>
 <ul>
 <li><a href="#%E8%BF%9E%E6%8E%A5%E7%82%B9">&#x8FDE;&#x63A5;&#x70B9;</a></li>
@@ -311,6 +311,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <ul>
 <li>&#x76F8;&#x5173;&#x8F85;&#x52A9;&#x5BF9;&#x8C61;
 <ul>
+<li><a href="demo/src/ioc/TestBeanConfig.java"><code>TestBeanConfig.java</code></a></li>
 <li><a href="demo/src/ioc/Holder4String.java"><code>Holder4String.java</code></a></li>
 <li><a href="demo/src/ioc/Holder4Object.java"><code>Holder4Object.java</code></a></li>
 <li><a href="demo/src/ioc/Holder4Collection.java"><code>Holder4Collection.java</code></a></li>
@@ -327,7 +328,6 @@ pre[data-line] .line-highlight[data-end]:after {
 </li>
 <li>&#x5C5E;&#x6027;&#x6CE8;&#x5165;
 <ul>
-<li><a href="demo/src/ioc/TestBeanConfig.java"><code>TestBeanConfig.java</code></a></li>
 <li><a href="demo/src/ioc/demoAttributeInjection.java"><code>demoAttributeInjection.java</code></a></li>
 <li><a href="demo/src/ioc/demoAttributeInjection.xml"><code>demoAttributeInjection.xml</code></a></li>
 </ul>
@@ -376,21 +376,22 @@ pre[data-line] .line-highlight[data-end]:after {
 </ul>
 <h2 class="mume-header" id="aop">AOP</h2>
 
-<h3 class="mume-header" id="%E4%BE%9D%E8%B5%96">&#x4F9D;&#x8D56;</h3>
+<h3 class="mume-header" id="%E9%9C%80%E8%A6%81%E7%9A%84%E4%BE%9D%E8%B5%96">&#x9700;&#x8981;&#x7684;&#x4F9D;&#x8D56;</h3>
 
-<p>&#x5728;Spring&#x4E2D;&#x4F7F;&#x7528;AspectJ&#xFF08;spring-aspects&#xFF09;&#x8FDB;&#x884C;AOP&#x64CD;&#x4F5C;&#x3002;</p>
 <ul>
-<li><a href="https://repo1.maven.org/maven2/cglib/cglib/">cglib</a></li>
-<li><a href="https://repo1.maven.org/maven2/asm/asm/">asm</a></li>
-<li><a href="https://repo1.maven.org/maven2/aopalliance/aopalliance/">aopalliance</a></li>
-<li><a href="https://repo1.maven.org/maven2/aspectj/aspectjweaver/">aspectjweaver</a></li>
+<li><a href="https://repo.spring.io/release/org/springframework/spring/5.2.6.RELEASE/spring-5.2.6.RELEASE-dist.zip"><code>spring-framework-5.2.6</code></a></li>
+<li><a href="https://maven.aliyun.com/repository/public/cglib/cglib/2.2/cglib-2.2.jar"><code>cglib-2.2.jar</code></a></li>
+<li><a href="https://maven.aliyun.com/repository/public/asm/asm/3.1/asm-3.1.jar"><code>asm-3.1.jar</code></a></li>
+<li><a href="https://maven.aliyun.com/repository/public/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"><code>aopalliance-1.0.jar</code></a></li>
+<li><a href="https://maven.aliyun.com/repository/public/org/aspectj/aspectjweaver/1.6.8/aspectjweaver-1.6.8.jar"><code>aspectjweaver-1.6.8.jar</code></a></li>
 </ul>
-<h3 class="mume-header" id="%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</h3>
+<h3 class="mume-header" id="aop%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">AOP&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</h3>
 
 <ul>
 <li>&#x6709;&#x63A5;&#x53E3;&#x4F7F;&#x7528;<a href="demo/src/aop/ProxyJDK.java"><code>JDK</code></a>&#x52A8;&#x6001;&#x4EE3;&#x7406;&#xFF1B;</li>
-<li>&#x6CA1;&#x6709;&#x63A5;&#x53E3;&#x4F7F;&#x7528;<a href="demo/src/aop/ProxyCGLIB.java"><code>CGLIB</code></a>&#xFF08;<span class="hint">cglib2.2 + asm3.0</span>&#xFF09;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#xFF08;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x589E;&#x5F3A;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;&#xFF09;&#x3002;</li>
+<li>&#x6CA1;&#x6709;&#x63A5;&#x53E3;&#x4F7F;&#x7528;<a href="demo/src/aop/ProxyCGLIB.java"><code>CGLIB</code></a>&#x52A8;&#x6001;&#x4EE3;&#x7406;&#xFF08;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x589E;&#x5F3A;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;&#xFF09;&#x3002;</li>
 </ul>
+<p>&#x5728;Spring&#x4E2D;&#x4F7F;&#x7528;AspectJ&#xFF08;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#xFF1A; + <a href="https://repo.spring.io/release/org/aspectj/aspectjweaver/1.6.12.RELEASE/aspectjweaver-1.6.12.RELEASE.jar"><code>aspectjweaver-1.6.12</code></a> + &#xFF09;&#x8FDB;&#x884C;AOP&#x64CD;&#x4F5C;&#x3002;</p>
 <h3 class="mume-header" id="%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">&#x57FA;&#x672C;&#x6982;&#x5FF5;</h3>
 
 <h4 class="mume-header" id="%E8%BF%9E%E6%8E%A5%E7%82%B9">&#x8FDE;&#x63A5;&#x70B9;</h4>

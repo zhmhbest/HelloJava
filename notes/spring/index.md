@@ -28,6 +28,7 @@
 ## IOC
 
 - 相关辅助对象
+  - [`TestBeanConfig.java`](demo/src/ioc/TestBeanConfig.java)
   - [`Holder4String.java`](demo/src/ioc/Holder4String.java)
   - [`Holder4Object.java`](demo/src/ioc/Holder4Object.java)
   - [`Holder4Collection.java`](demo/src/ioc/Holder4Collection.java)
@@ -38,7 +39,6 @@
     - [`Gender.java`](demo/src/ioc/annotation/Gender.java)
     - [`Age.java`](demo/src/ioc/annotation/Age.java)
 - 属性注入
-  - [`TestBeanConfig.java`](demo/src/ioc/TestBeanConfig.java)
   - [`demoAttributeInjection.java`](demo/src/ioc/demoAttributeInjection.java)
   - [`demoAttributeInjection.xml`](demo/src/ioc/demoAttributeInjection.xml)
 - 特殊符号、Object注入
@@ -64,19 +64,16 @@
 
 ## AOP
 
-### 依赖
+### 需要的依赖
 
-在Spring中使用AspectJ（spring-aspects）进行AOP操作。
+@import "dependency.md"
 
-- [cglib](https://repo1.maven.org/maven2/cglib/cglib/)
-- [asm](https://repo1.maven.org/maven2/asm/asm/)
-- [aopalliance](https://repo1.maven.org/maven2/aopalliance/aopalliance/)
-- [aspectjweaver](https://repo1.maven.org/maven2/aspectj/aspectjweaver/)
-
-### 实现方式
+### AOP实现方式
 
 - 有接口使用[`JDK`](demo/src/aop/ProxyJDK.java)动态代理；
-- 没有接口使用[`CGLIB`](demo/src/aop/ProxyCGLIB.java)（<span class='hint'>cglib2.2 + asm3.0</span>）动态代理（在子类中增强父类方法）。
+- 没有接口使用[`CGLIB`](demo/src/aop/ProxyCGLIB.java)动态代理（在子类中增强父类方法）。
+
+在Spring中使用AspectJ（测试环境： + [`aspectjweaver-1.6.12`](https://repo.spring.io/release/org/aspectj/aspectjweaver/1.6.12.RELEASE/aspectjweaver-1.6.12.RELEASE.jar) + ）进行AOP操作。
 
 ### 基本概念
 

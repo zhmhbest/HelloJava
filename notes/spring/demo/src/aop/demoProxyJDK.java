@@ -4,27 +4,12 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class ProxyJDK {
-    interface UserInterface {
-        void sayHello(String name);
-        void sayGoodbye(String name);
-    }
-    static class User implements UserInterface {
-        @Override
-        public void sayHello(String name) {
-            System.out.printf("%s: Hello\n", name);
-        }
-        @Override
-        public void sayGoodbye(String name) {
-            System.out.printf("%s: Goodbye\n", name);
-        }
-    }
-
+public class demoProxyJDK {
     public static void main(String[] args) {
         // 增强User
         User obj = new User();
         UserInterface user = (UserInterface)Proxy.newProxyInstance(
-            ProxyJDK.class.getClassLoader(),
+            demoProxyJDK.class.getClassLoader(),
             new Class[]{UserInterface.class},
             new InvocationHandler() {
                 @Override
