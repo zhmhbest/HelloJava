@@ -70,10 +70,16 @@
 
 ### AOP实现方式
 
-- 有接口使用[`JDK`](demo/src/aop/ProxyJDK.java)动态代理；
-- 没有接口使用[`CGLIB`](demo/src/aop/ProxyCGLIB.java)动态代理（在子类中增强父类方法）。
+- 有接口使用[`JDK`](demo/src/aop/demoProxyJDK.java)动态代理；
+- 没有接口使用[`CGLIB`](demo/src/aop/demoProxyCGLIB.java)动态代理（在子类中增强父类方法）。
 
-在Spring中使用AspectJ（测试环境： + [`aspectjweaver-1.6.12`](https://repo.spring.io/release/org/aspectj/aspectjweaver/1.6.12.RELEASE/aspectjweaver-1.6.12.RELEASE.jar) + ）进行AOP操作。
+在Spring中使用AspectJ进行AOP操作。
+
+- [`UserInterface.java`](demo/src/aop/UserInterface.java)
+- [`User.java`](demo/src/aop/User.java)
+- [`UserProxy.java`](demo/src/aop/annotation/UserProxy.java)
+- [`demo.java`](demo/src/aop/demoProxySpring.java)
+- [`demo.xml`](demo/src/aop/demoProxySpring.xml)
 
 ### 基本概念
 
