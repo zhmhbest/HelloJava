@@ -58,8 +58,10 @@ mkdir "src/main/webapp/WEB-INF/pages"
 
 ![Initializr](images/spring_initializr.png)
 
+`src/main/java/com/example/demo/controller/HelloController.java`
+
 ```java
-package com.example.hello.controller;
+package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -90,6 +92,6 @@ public class HelloController {
 
 ```batch
 mvn package
+start http://127.0.0.1:8080/hello
 @FOR /F "usebackq" %f in (`DIR /B "target\*.jar"`) DO java -jar "target/%f"
-REM 127.0.0.1:8080
 ```
