@@ -52,6 +52,10 @@ mkdir "src/main/webapp/WEB-INF/pages"
 
 @import "demo/HelloSpringMVC/src/main/webapp/WEB-INF/pages/hello.jsp" {as="html"}
 
+`src/main/webapp/WEB-INF/pages/void.jsp`
+
+@import "demo/HelloSpringMVC/src/main/webapp/WEB-INF/pages/void.jsp" {as="html"}
+
 ## SpringBoot
 
 登录[Spring Initializr](https://start.spring.io/)下载一个项目模板。
