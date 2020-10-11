@@ -3,6 +3,57 @@
 
 # [SpringWeb](../index.html)
 
+[TOC]
+
+## SpringMVC
+
+### Create
+
+```bash
+# HelloSpringMVC
+ProjectName=HelloSpringMVC
+mvn archetype:generate "-DgroupId=org.example" "-DartifactId=${ProjectName}" "-DarchetypeArtifactId=maven-archetype-webapp" "-DinteractiveMode=false"
+cd ${ProjectName}
+mkdir "src/main/java"
+mkdir "src/main/webapp/WEB-INF/pages"
+```
+
+### Dependencies
+
+`pom.xml`
+
+@import "demo/HelloSpringMVC/pom.xml"
+
+### Controller
+
+`src/main/java/org/example/HelloController.java`
+
+@import "demo/HelloSpringMVC/src/main/java/org/example/HelloController.java"
+
+### ContextConfig
+
+`src/main/resources/springmvc.xml`
+
+@import "demo/HelloSpringMVC/src/main/resources/springmvc.xml"
+
+### WebConfig
+
+`src/main/webapp/WEB-INF/web.xml`
+
+@import "demo/HelloSpringMVC/src/main/webapp/WEB-INF/web.xml"
+
+### Pages
+
+`src/main/webapp/index.jsp`
+
+@import "demo/HelloSpringMVC/src/main/webapp/index.jsp" {as="html"}
+
+`src/main/webapp/WEB-INF/pages/hello.jsp`
+
+@import "demo/HelloSpringMVC/src/main/webapp/WEB-INF/pages/hello.jsp" {as="html"}
+
+## SpringBoot
+
 登录[Spring Initializr](https://start.spring.io/)下载一个项目模板。
 
 ![Initializr](images/spring_initializr.png)
