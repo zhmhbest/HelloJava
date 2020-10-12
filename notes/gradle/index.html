@@ -266,9 +266,33 @@ pre[data-line] .line-highlight[data-end]:after {
 <h1 class="mume-header" id="gradleindexhtml"><a href="../index.html">Gradle</a></h1>
 
 <ul>
-<li><a href="#gradleindexhtml">Gradle</a></li>
+<li><a href="#gradleindexhtml">Gradle</a>
+<ul>
+<li><a href="#hello">Hello</a></li>
 </ul>
+</li>
+</ul>
+<h2 class="mume-header" id="hello">Hello</h2>
 
+<blockquote>
+<p><a href="https://gradle.org/releases/">Download Gradle</a></p>
+</blockquote>
+<p><code>build.gradle</code></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">task hello <span class="token punctuation">{</span>
+    doLast <span class="token punctuation">{</span>
+        println <span class="token string">&apos;Hello!&apos;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="batch" class="language-batch"><span class="token command"><span class="token keyword">gradle</span> <span class="token parameter attr-name">-q</span> hello</span>
+</pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>Hello!
+</code></pre><p><code>build.gradle</code></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">task hello <span class="token punctuation">{</span>
+    String hello <span class="token operator">=</span> <span class="token string">&apos;Hello!&apos;</span>
+    println hello<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="batch" class="language-batch"><span class="token command"><span class="token keyword">gradle</span> <span class="token parameter attr-name">-q</span> hello</span>
+</pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>HELLO!
+</code></pre>
       </div>
       
       
