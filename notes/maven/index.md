@@ -7,9 +7,11 @@
 
 ## 安装
 
+>[Download Maven](http://maven.apache.org/download.cgi)
+
 ### 文件目录
 
-- [MAVEN_HOME](http://maven.apache.org/download.cgi)
+- MAVEN_HOME
   - bin
     - mvn
   - boot
