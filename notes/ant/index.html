@@ -263,25 +263,51 @@ pre[data-line] .line-highlight[data-end]:after {
       <div class="mume markdown-preview  ">
       <link rel="stylesheet" href="https://zhmhbest.gitee.io/hellomathematics/style/index.css">
 <script src="https://zhmhbest.gitee.io/hellomathematics/style/index.js"></script>
-<h1 class="mume-header" id="javawebhttpsgithubcomzhmhbesthellospring"><a href="https://github.com/zhmhbest/HelloSpring">JavaWeb</a></h1>
+<h1 class="mume-header" id="antindexhtml"><a href="../index.html">Ant</a></h1>
 
-<h2 class="mume-header" id="javajavaindexhtml"><a href="java/index.html">Java</a></h2>
+<ul>
+<li><a href="#antindexhtml">Ant</a>
+<ul>
+<li><a href="#hello">Hello</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="hello">Hello</h2>
 
-<h2 class="mume-header" id="tomcattomcatindexhtml"><a href="tomcat/index.html">Tomcat</a></h2>
+<p><code>src/Hello.java</code></p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Hello</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p><code>build.xml</code></p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml"><span class="token prolog">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>HelloProject<span class="token punctuation">&quot;</span></span> <span class="token attr-name">default</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>build<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+   &lt;property name=&quot;hi_build&quot; value = &quot;Building...&quot;&gt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+   &lt;property name=&quot;hi_clean&quot; value = &quot;Cleaning...&quot;&gt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+   &lt;property name=&quot;dir.src&quot; value = &quot;src&quot;&gt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+   &lt;property name=&quot;dir.out&quot; value = &quot;out&quot;&gt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+   
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>target</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>build<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>echo</span><span class="token punctuation">&gt;</span></span>${hi_build}!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>echo</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mkdir</span> <span class="token attr-name">dir</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>${dir.out}<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mkdir</span> <span class="token attr-name">dir</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>${dir.out}/classes<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>javac</span> <span class="token attr-name">destdir</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>${dir.out}/classes<span class="token punctuation">&quot;</span></span> <span class="token attr-name">includeAntRuntime</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>false<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>src</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>${dir.src}<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>javac</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>target</span><span class="token punctuation">&gt;</span></span>
 
-<h2 class="mume-header" id="springspringindexhtml"><a href="spring/index.html">Spring</a></h2>
-
-<h2 class="mume-header" id="build-tools">Build Tools</h2>
-
-<h3 class="mume-header" id="antantindexhtml"><a href="ant/index.html">Ant</a></h3>
-
-<h3 class="mume-header" id="mavenmavenindexhtml"><a href="maven/index.html">Maven</a></h3>
-
-<h3 class="mume-header" id="gradlegradleindexhtml"><a href="gradle/index.html">Gradle</a></h3>
-
-<h2 class="mume-header" id="springwebspring_webindexhtml"><a href="spring_web/index.html">SpringWeb</a></h2>
-
-
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>target</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>clean<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>echo</span><span class="token punctuation">&gt;</span></span>${hi_clean}!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>echo</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>delete</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fileset</span> <span class="token attr-name">dir</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>${dir.out}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>**/*.class<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fileset</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>delete</span><span class="token punctuation">&gt;</span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>target</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</pre><pre data-role="codeBlock" data-info="batch" class="language-batch"><span class="token command"><span class="token keyword">ant</span> clean</span>
+<span class="token command"><span class="token keyword">ant</span> build</span>
+<span class="token command"><span class="token keyword">java</span> -cp out<span class="token parameter attr-name">/classes</span> Hello</span>
+</pre>
       </div>
       
       
