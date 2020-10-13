@@ -2,5 +2,8 @@ dump/
 .idea/
 out/
 target/
+META-INF/
+classes/
+lib/
 *.iml
 .gradle
