@@ -149,6 +149,7 @@ mvn deploy
 
 ```batch
 REM 创建
+REM maven-archetype-quickstart | maven-archetype-webapp
 mvn archetype:generate "-DgroupId=com.zhmh" "-DartifactId=HelloMaven" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"
 
 REM 编译
@@ -156,6 +157,16 @@ mvn clean compile
 
 REM 执行
 java -cp "target/classes" com.zhmh.App
+```
+
+### 源码与文档
+
+```bash
+# 下载项目依赖的源码
+mvn dependency:sources
+
+# 下载项目依赖的文档
+mvn dependency:resolve -Dclassifier=javadoc
 ```
 
 ## IDEA配置
