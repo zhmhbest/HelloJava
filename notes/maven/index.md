@@ -113,16 +113,22 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
     <groupId>org.example</groupId>
 
     <!-- 项目的唯一ID，一个groupId下面可能多个项目，靠artifactId来区分 -->
-    <artifactId>HelloMaven</artifactId>
+    <artifactId>hello-maven</artifactId>
 
     <!-- 项目名称 -->
-    <name>HelloMaven</name>
+    <name>Hello Maven App</name>
 
     <!-- 版本号 -->
     <version>1.0-SNAPSHOT</version>
 
-    <!-- 打包格式 -->
+    <!-- 打包格式 jar/war -->
     <packaging>jar</packaging>
+
+    <!-- 自定义变量 -->
+    <properties>
+      <变量名>值</变量名>
+      <!-- ${变量名} -->
+    </properties>
 
     <!-- 引入外部依赖 -->
     <dependencies>
@@ -134,6 +140,82 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
       </dependency>
     </dependencies>
 
+    <!-- 打包配置 -->
+    <build>
+      <finalName>${project.artifactId}</finalName>
+
+      <!-- 覆写约定目录 -->
+      <!--
+      <directory>${project.basedir}/target</directory>
+      <resources>
+          <resource>
+              <directory>${project.basedir}/src/main/java</directory>
+          </resource>
+          <resource>
+              <directory>${project.basedir}/src/main/resources</directory>
+          </resource>
+      </resources>
+      <testResources>
+          <testResource>
+              <directory>${project.basedir}/src/test/java</directory>
+          </testResource>
+          <testResource>
+              <directory>${project.basedir}/src/test/resources</directory>
+          </testResource>
+      </testResources>
+      -->
+
+      <!-- 添加多个源码目录、资源目录 -->
+      <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>1.8</version>
+          <executions>
+               <!-- 添加多个源码目录 -->
+              <execution>
+                  <id>add-source</id>
+                  <phase>initialize</phase>
+                  <goals><goal>add-source</goal></goals>
+                  <configuration>
+                      <sources>
+                          <source>${project.basedir}/src/main/java</source>
+                          <!-- ... -->
+                      </sources>
+                  </configuration>
+              </execution>
+               <!-- 添加多个资源目录 -->
+              <execution>
+                  <id>add-resource</id>
+                  <phase>initialize</phase>
+                  <goals><goal>add-resource</goal></goals>
+                  <configuration>
+                      <resources>
+                          <resource>
+                              <directory>${project.basedir}/src/main/conf</directory>
+                              <filtering>true</filtering>
+                              <excludes><exclude>**/*.java</exclude></excludes>
+                          </resource>
+                      </resources>
+                      <!-- ... -->
+                  </configuration>
+              </execution>
+          </executions>
+      </plugin>
+
+      <!-- 源码版本、目标版本 -->
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <encoding>UTF-8</encoding>
+            <source>8</source>
+            <target>8</target>
+          </configuration>
+        </plugin>
+      </plugins>
+
+    </build>
     <!-- ... -->
   
 </project>
