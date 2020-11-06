@@ -268,11 +268,14 @@ pre[data-line] .line-highlight[data-end]:after {
 <ul>
 <li><a href="#tomcatindexhtml">Tomcat</a>
 <ul>
-<li><a href="#tomcat%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">Tomcat&#x76EE;&#x5F55;&#x7ED3;&#x6784;</a></li>
-<li><a href="#jee-web-project">JEE WEB Project</a>
+<li><a href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">&#x76EE;&#x5F55;&#x7ED3;&#x6784;</a>
+<ul>
+<li><a href="#catalina">Catalina</a></li>
+</ul>
+</li>
+<li><a href="#web%E9%A1%B9%E7%9B%AE">WEB&#x9879;&#x76EE;</a>
 <ul>
 <li><a href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84">&#x9879;&#x76EE;&#x7ED3;&#x6784;</a></li>
-<li><a href="#idea%E5%88%9B%E5%BB%BAweb%E9%A1%B9%E7%9B%AE">IDEA&#x521B;&#x5EFA;Web&#x9879;&#x76EE;</a></li>
 <li><a href="#%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2">&#x9879;&#x76EE;&#x90E8;&#x7F72;</a></li>
 </ul>
 </li>
@@ -285,71 +288,114 @@ pre[data-line] .line-highlight[data-end]:after {
 </ul>
 </li>
 </ul>
-<h2 class="mume-header" id="tomcat%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">Tomcat&#x76EE;&#x5F55;&#x7ED3;&#x6784;</h2>
+<h2 class="mume-header" id="%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">&#x76EE;&#x5F55;&#x7ED3;&#x6784;</h2>
 
-<ul>
-<li>apache-tomcat
-<ul>
-<li>bin
-<ul>
-<li><code>startup.sh</code></li>
-<li><code>shutdown.sh</code></li>
-</ul>
-</li>
-<li>conf
-<ul>
-<li>Catalina
-<ul>
-<li>localhost
-<ul>
-<li><code>?.xml</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>server.xml</code></li>
-<li><code>tomcat-users.xml</code></li>
-<li><code>web.xml</code></li>
-</ul>
-</li>
-<li>lib
-<ul>
-<li><code>jsp-api.jar</code></li>
-<li><code>servlet-api.jar</code></li>
-<li><code>websocket-api.jar</code></li>
-<li>...</li>
-</ul>
-</li>
-<li>logs</li>
-<li>temp</li>
-<li><span class="highlight">webapps</span></li>
-<li>work</li>
-</ul>
-</li>
-</ul>
-<h2 class="mume-header" id="jee-web-project">JEE WEB Project</h2>
+<pre data-role="codeBlock" data-info="txt" class="language-txt"><code>apache-tomcat:
+&#x251C;&#x2500;bin
+&#x2502;      shutdown.sh                  catalina.sh start
+&#x2502;      startup.sh                   catalina.sh stop
+&#x2502;      catalina.sh                  &#x542F;&#x52A8;&#x5E76;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x7ED9;bootstrap.jar
+&#x2502;      bootstrap.jar                &#x7C7B;&#x52A0;&#x8F7D;&#x5668;
+&#x2502;      commons-daemon.jar           &#x670D;&#x52A1;&#x5BB9;&#x5668;
+&#x2502;      tomcat-juli.jar              &#x65E5;&#x5FD7;&#x529F;&#x80FD;
+&#x2502;      ...
+&#x2502;
+&#x251C;&#x2500;conf
+&#x2502;  &#x2502;  catalina.policy
+&#x2502;  &#x2502;  catalina.properties
+&#x2502;  &#x2502;  context.xml
+&#x2502;  &#x2502;  jaspic-providers.xml
+&#x2502;  &#x2502;  jaspic-providers.xsd
+&#x2502;  &#x2502;  logging.properties
+&#x2502;  &#x2502;  server.xml
+&#x2502;  &#x2502;  tomcat-users.xml
+&#x2502;  &#x2502;  tomcat-users.xsd
+&#x2502;  &#x2502;  web.xml
+&#x2502;  &#x2502;
+&#x2502;  &#x2514;&#x2500;Catalina
+&#x2502;      &#x2514;&#x2500;localhost
+&#x2502;              *.xml
+&#x2502;
+&#x251C;&#x2500;lib
+&#x2502;      *.jar
+&#x2502;
+&#x251C;&#x2500;logs                              &#x65E5;&#x5FD7;&#x76EE;&#x5F55;
+&#x251C;&#x2500;temp                              &#x6682;&#x5B58;&#x76EE;&#x5F55;
+&#x251C;&#x2500;webapps                           &#x6240;&#x6709;Web&#x5E94;&#x7528;
+&#x2514;&#x2500;work                              &#x7F16;&#x8BD1;&#x540E;&#x7684;JSP&#x6587;&#x4EF6;
+    &#x2514;&#x2500;Catalina
+        &#x2514;&#x2500;localhost
+</code></pre><h3 class="mume-header" id="catalina">Catalina</h3>
+
+<p>&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt"><code>JAVA_HOME           Java Development Kit installation
+JRE_HOME            Java Runtime installation
+CLASSPATH
+
+JAVA_OPTS           Java runtime options used when the &quot;jpda start&quot;
+JPDA_TRANSPORT
+JPDA_ADDRESS
+JPDA_SUSPEND
+
+CATALINA_HOME       Catalina &quot;build&quot; directory
+CATALINA_BASE       For resolving dynamic portions
+CATALINA_TMPDIR     Temporary directory
+CATALINA_OPTS       Java runtime options used when the &quot;start&quot; | &quot;run&quot; | &quot;debug&quot;
+
+LOGGING_CONFIG      Override Tomcat&apos;s logging config file
+LOGGING_MANAGER     Override Tomcat&apos;s logging manager
+</code></pre><p>&#x542F;&#x52A8;&#x53C2;&#x6570;</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt"><code>debug               Start Catalina in a debugger
+debug -security     Debug Catalina with a security manager
+jpda start          Start Catalina under JPDA debugger
+run                 Start Catalina in the current window
+run -security       Start in the current window with security manager
+start               Start Catalina in a separate window
+start -security     Start in a separate window with security manager
+stop                Stop Catalina
+configtest          Run a basic syntax check on server.xml
+version             What version of tomcat are you running?
+</code></pre><p>&#x4E00;&#x822C;&#x542F;&#x52A8;</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">java \
+    -Djava.util.logging.config.file<span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${CATALINA_BASE}</span>/conf/logging.properties&quot;</span> \
+    -Djava.util.logging.manager<span class="token operator">=</span>org.apache.juli.ClassLoaderLogManager \
+    -Djdk.tls.ephemeralDHKeySize<span class="token operator">=</span>2048 \
+    -Djava.protocol.handler.pkgs<span class="token operator">=</span>org.apache.catalina.webresources \
+    -Dignore.endorsed.dirs<span class="token operator">=</span><span class="token string">&quot;&quot;</span> \
+    -classpath <span class="token string">&quot;<span class="token variable">${CATALINA_HOME}</span>/bin/bootstrap.jar;<span class="token variable">${CATALINA_HOME}</span>/bin/tomcat-juli.jar&quot;</span> \
+    -Dcatalina.base<span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${CATALINA_BASE}</span>&quot;</span> \
+    -Dcatalina.home<span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${CATALINA_HOME}</span>&quot;</span> \
+    -Djava.io.tmpdir<span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${CATALINA_BASE}</span>/temp&quot;</span> \
+    org.apache.catalina.startup.Bootstrap \
+    start
+</pre><h2 class="mume-header" id="web%E9%A1%B9%E7%9B%AE">WEB&#x9879;&#x76EE;</h2>
 
 <h3 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84">&#x9879;&#x76EE;&#x7ED3;&#x6784;</h3>
 
-<ul>
-<li>WebappRoot
-<ul>
-<li>WEB-INF
-<ul>
-<li>web.xml</li>
-<li>classes</li>
-<li>lib</li>
-</ul>
-</li>
-<li><code>index.jsp</code> / <code>index.html</code></li>
-<li>...</li>
-</ul>
-</li>
-</ul>
-<h3 class="mume-header" id="idea%E5%88%9B%E5%BB%BAweb%E9%A1%B9%E7%9B%AE">IDEA&#x521B;&#x5EFA;Web&#x9879;&#x76EE;</h3>
-
-<p><img src="images/idea_jee_webapp.png" alt="create_webapp"></p>
-<h3 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2">&#x9879;&#x76EE;&#x90E8;&#x7F72;</h3>
+<p><img src="images/idea_jee_webapp.png" alt="idea_jee_webapp"></p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt"><code>Project:
+&#x251C;&#x2500;src
+&#x2502;      *.java
+&#x2502;
+&#x2514;&#x2500;web
+    &#x2502;  index.jsp
+    &#x2502;
+    &#x251C;&#x2500;static
+    &#x2502;      *.css
+    &#x2502;      *.js
+    &#x2502;
+    &#x2514;&#x2500;WEB-INF
+        &#x2502;  web.xml
+        &#x2502;
+        &#x251C;&#x2500;classes
+        &#x2502;      *.class
+        &#x2502;
+        &#x251C;&#x2500;jsp
+        &#x2502;      *.jsp
+        &#x2502;
+        &#x2514;&#x2500;lib
+                *.jar
+</code></pre><h3 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2">&#x9879;&#x76EE;&#x90E8;&#x7F72;</h3>
 
 <p>&#x90E8;&#x7F72;&#x9879;&#x76EE;&#x6709;&#x4EE5;&#x4E0B;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x3002;</p>
 <p>1&#x3001;&#x76F4;&#x63A5;&#x5C06;&#x9879;&#x76EE;&#x653E;&#x7F6E;&#x5230;<code>webapps</code>&#x76EE;&#x5F55;&#x4E0B;</p>
@@ -373,7 +419,6 @@ pre[data-line] .line-highlight[data-end]:after {
 <span class="token comment">&lt;!-- &#x2191;&#x2191;&#x2191;&#x65B0;&#x589E;&#x90E8;&#x5206;&#x2191;&#x2191;&#x2191; --&gt;</span>
 </pre><h2 class="mume-header" id="servlet">Servlet</h2>
 
-<p><a href="http://127.0.0.1:8080/hello">http://127.0.0.1:8080/hello</a></p>
 <h3 class="mume-header" id="xml%E6%A8%A1%E5%BC%8F">Xml&#x6A21;&#x5F0F;</h3>
 
 <p><code>src/com.example.HelloServlet</code></p>
