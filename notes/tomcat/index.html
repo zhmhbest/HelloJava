@@ -268,12 +268,19 @@ pre[data-line] .line-highlight[data-end]:after {
 <ul>
 <li><a href="#tomcatindexhtml">Tomcat</a>
 <ul>
-<li><a href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">&#x76EE;&#x5F55;&#x7ED3;&#x6784;</a>
+<li><a href="#tomcat">Tomcat</a>
 <ul>
-<li><a href="#catalina">Catalina</a></li>
+<li><a href="#catalina">Catalina</a>
+<ul>
+<li><a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">&#x73AF;&#x5883;&#x53D8;&#x91CF;</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0">&#x542F;&#x52A8;&#x53C2;&#x6570;</a></li>
+<li><a href="#%E4%B8%80%E8%88%AC%E5%90%AF%E5%8A%A8">&#x4E00;&#x822C;&#x542F;&#x52A8;</a></li>
+<li><a href="#tomcatrunner">TomcatRunner</a></li>
 </ul>
 </li>
-<li><a href="#web%E9%A1%B9%E7%9B%AE">WEB&#x9879;&#x76EE;</a>
+</ul>
+</li>
+<li><a href="#web-project">Web Project</a>
 <ul>
 <li><a href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84">&#x9879;&#x76EE;&#x7ED3;&#x6784;</a></li>
 <li><a href="#%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2">&#x9879;&#x76EE;&#x90E8;&#x7F72;</a></li>
@@ -288,7 +295,7 @@ pre[data-line] .line-highlight[data-end]:after {
 </ul>
 </li>
 </ul>
-<h2 class="mume-header" id="%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">&#x76EE;&#x5F55;&#x7ED3;&#x6784;</h2>
+<h2 class="mume-header" id="tomcat">Tomcat</h2>
 
 <pre data-role="codeBlock" data-info="txt" class="language-txt"><code>apache-tomcat:
 &#x251C;&#x2500;bin
@@ -327,7 +334,8 @@ pre[data-line] .line-highlight[data-end]:after {
         &#x2514;&#x2500;localhost
 </code></pre><h3 class="mume-header" id="catalina">Catalina</h3>
 
-<p>&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
+<h4 class="mume-header" id="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">&#x73AF;&#x5883;&#x53D8;&#x91CF;</h4>
+
 <pre data-role="codeBlock" data-info="txt" class="language-txt"><code>JAVA_HOME           Java Development Kit installation
 JRE_HOME            Java Runtime installation
 CLASSPATH
@@ -344,7 +352,8 @@ CATALINA_OPTS       Java runtime options used when the &quot;start&quot; | &quot
 
 LOGGING_CONFIG      Override Tomcat&apos;s logging config file
 LOGGING_MANAGER     Override Tomcat&apos;s logging manager
-</code></pre><p>&#x542F;&#x52A8;&#x53C2;&#x6570;</p>
+</code></pre><h4 class="mume-header" id="%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0">&#x542F;&#x52A8;&#x53C2;&#x6570;</h4>
+
 <pre data-role="codeBlock" data-info="txt" class="language-txt"><code>debug               Start Catalina in a debugger
 debug -security     Debug Catalina with a security manager
 jpda start          Start Catalina under JPDA debugger
@@ -355,7 +364,8 @@ start -security     Start in a separate window with security manager
 stop                Stop Catalina
 configtest          Run a basic syntax check on server.xml
 version             What version of tomcat are you running?
-</code></pre><p>&#x4E00;&#x822C;&#x542F;&#x52A8;</p>
+</code></pre><h4 class="mume-header" id="%E4%B8%80%E8%88%AC%E5%90%AF%E5%8A%A8">&#x4E00;&#x822C;&#x542F;&#x52A8;</h4>
+
 <pre data-role="codeBlock" data-info="bash" class="language-bash">java \
     -Djava.util.logging.config.file<span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${CATALINA_BASE}</span>/conf/logging.properties&quot;</span> \
     -Djava.util.logging.manager<span class="token operator">=</span>org.apache.juli.ClassLoaderLogManager \
@@ -368,7 +378,29 @@ version             What version of tomcat are you running?
     -Djava.io.tmpdir<span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${CATALINA_BASE}</span>/temp&quot;</span> \
     org.apache.catalina.startup.Bootstrap \
     start
-</pre><h2 class="mume-header" id="web%E9%A1%B9%E7%9B%AE">WEB&#x9879;&#x76EE;</h2>
+</pre><h4 class="mume-header" id="tomcatrunner">TomcatRunner</h4>
+
+<p>&#x6B64;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x517C;&#x5BB9;<strong>IDEA Community</strong>&#x3002;</p>
+<ul>
+<li><em>Step1</em>&#xFF1A;&#x65B0;&#x5EFA;<strong>Java Module</strong>&#x547D;&#x540D;&#x4E3A;<strong>Server</strong>&#x3002;</li>
+<li><em>Step2</em>&#xFF1A;&#x5F15;&#x5165;&#x4F9D;&#x8D56;<code>${CATALINA_HOME}/bin/bootstrap.jar</code>&#x3001;<code>${CATALINA_HOME}/bin/tomcat-juli.jar</code>&#x3002;</li>
+<li><em>Step3</em>&#xFF1A;&#x591F;&#x5EFA;&#x6587;&#x4EF6;<a href="./Server/src/TomcatResources.java"><code>TomcatResources.java</code></a>&#x3001;<a href="./Server/src/TomcatRunner.java"><code>TomcatRunner.java</code></a>&#x53CA;&#x57FA;&#x672C;&#x914D;&#x7F6E;<a href="./Server/src/conf/runner.properties"><code>runner.properties</code></a>&#x3001;<a href="./Server/src/conf/server.xml"><code>server.xml</code></a></li>
+</ul>
+<pre data-role="codeBlock" data-info="txt" class="language-txt"><code>Server:
+&#x2502;
+&#x251C;&#x2500;out
+&#x2514;&#x2500;src
+    &#x2502;  TomcatResources.java
+    &#x2502;  TomcatRunner.java
+    &#x2502;
+    &#x2514;&#x2500;conf
+            runner.properties
+            server.xml
+            ...
+</code></pre><ul>
+<li><em>Step4</em>&#xFF1A;&#x7F16;&#x8F91;<code>server.xml</code>&#x6587;&#x4EF6;&#x5B8C;&#x5584;&#x914D;&#x7F6E;&#x3002;</li>
+</ul>
+<h2 class="mume-header" id="web-project">Web Project</h2>
 
 <h3 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84">&#x9879;&#x76EE;&#x7ED3;&#x6784;</h3>
 
@@ -436,9 +468,7 @@ version             What version of tomcat are you running?
      * &#xFF08;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF09;&#x4EC5;&#x5728;Servlet&#x88AB;&#x521B;&#x5EFA;&#x65F6;&#x6267;&#x884C;
      */</span>
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token class-name">ServletConfig</span> servletConfig<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span>
-
-    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token class-name">ServletConfig</span> servletConfig<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
 
     <span class="token comment">/**
      * &#xFF08;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF09;&#x6BCF;&#x6B21;Servlet&#x88AB;&#x8BBF;&#x95EE;&#x65F6;&#x6267;&#x884C;
@@ -454,25 +484,19 @@ version             What version of tomcat are you running?
      * &#xFF08;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF09;&#x4EC5;&#x5728;Servlet&#x88AB;&#x9500;&#x6BC1;&#x65F6;&#xFF08;&#x670D;&#x52A1;&#x5668;&#x6B63;&#x5E38;&#x5173;&#x95ED;&#x65F6;&#xFF09;&#x6267;&#x884C;
      */</span>
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
 
     <span class="token comment">/**
      * &#x83B7;&#x53D6;Servlet&#x7684;Config&#x5BF9;&#x8C61;
      */</span>
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token class-name">ServletConfig</span> <span class="token function">getServletConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token class-name">ServletConfig</span> <span class="token function">getServletConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 
     <span class="token comment">/**
      * &#x83B7;&#x53D6;Servlet&#x7684;&#x4FE1;&#x606F;
      */</span>
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getServletInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getServletInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </pre><p><code>web/WEB-INF/web.xml</code></p>
 <pre data-role="codeBlock" data-info="xml" class="language-xml">    <span class="token comment">&lt;!-- ... --&gt;</span>
@@ -504,16 +528,16 @@ version             What version of tomcat are you running?
 <span class="token comment">//@WebServlet(urlPatterns = {&quot;/hello&quot;})</span>
 <span class="token annotation punctuation">@WebServlet</span><span class="token punctuation">(</span><span class="token string">&quot;/hello&quot;</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloServlet</span> <span class="token keyword">implements</span> <span class="token class-name">Servlet</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token class-name">ServletConfig</span> servletConfig<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token class-name">ServletConfig</span> servletConfig<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">service</span><span class="token punctuation">(</span><span class="token class-name">ServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">ServletResponse</span> response<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span><span class="token punctuation">,</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span>
         <span class="token class-name">PrintWriter</span> writer <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         writer<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hello Servlet&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         writer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token class-name">ServletConfig</span> <span class="token function">getServletConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
-    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getServletInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token class-name">ServletConfig</span> <span class="token function">getServletConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getServletInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </pre>
       </div>
