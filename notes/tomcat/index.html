@@ -278,6 +278,14 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#tomcatrunner">TomcatRunner</a></li>
 </ul>
 </li>
+<li><a href="#server">Server</a>
+<ul>
+<li><a href="#listener">Listener</a></li>
+<li><a href="#globalnamingresources">GlobalNamingResources</a></li>
+<li><a href="#realm">Realm</a></li>
+<li><a href="#valve">Valve</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#web-project">Web Project</a>
@@ -321,14 +329,14 @@ pre[data-line] .line-highlight[data-end]:after {
 &#x2502;  &#x2502;
 &#x2502;  &#x2514;&#x2500;Catalina
 &#x2502;      &#x2514;&#x2500;localhost
-&#x2502;              *.xml
+&#x2502;              *.xml                &#x7528;&#x4E8E;&#x52A8;&#x6001;&#x90E8;&#x7F72;&#x5E94;&#x7528;
 &#x2502;
 &#x251C;&#x2500;lib
 &#x2502;      *.jar
 &#x2502;
 &#x251C;&#x2500;logs                              &#x65E5;&#x5FD7;&#x76EE;&#x5F55;
 &#x251C;&#x2500;temp                              &#x6682;&#x5B58;&#x76EE;&#x5F55;
-&#x251C;&#x2500;webapps                           &#x6240;&#x6709;Web&#x5E94;&#x7528;
+&#x251C;&#x2500;webapps                           Web&#x5E94;&#x7528;&#x76EE;&#x5F55;
 &#x2514;&#x2500;work                              &#x7F16;&#x8BD1;&#x540E;&#x7684;JSP&#x6587;&#x4EF6;
     &#x2514;&#x2500;Catalina
         &#x2514;&#x2500;localhost
@@ -382,8 +390,8 @@ version             What version of tomcat are you running?
 
 <p>&#x6B64;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x517C;&#x5BB9;<strong>IDEA Community</strong>&#x3002;</p>
 <ul>
-<li><em>Step1</em>&#xFF1A;&#x65B0;&#x5EFA;<strong>Java Module</strong>&#x547D;&#x540D;&#x4E3A;<strong>Server</strong>&#x3002;</li>
-<li><em>Step2</em>&#xFF1A;&#x5F15;&#x5165;&#x4F9D;&#x8D56;<code>${CATALINA_HOME}/bin/bootstrap.jar</code>&#x3001;<code>${CATALINA_HOME}/bin/tomcat-juli.jar</code>&#x3002;</li>
+<li><em>Step1</em>&#xFF1A;&#x65B0;&#x5EFA;<strong>Java Module</strong>&#x547D;&#x540D;&#x4E3A;<strong>Server</strong></li>
+<li><em>Step2</em>&#xFF1A;&#x5F15;&#x5165;&#x4F9D;&#x8D56;<code>${CATALINA_HOME}/bin/bootstrap.jar</code>&#x3001;<code>${CATALINA_HOME}/bin/tomcat-juli.jar</code></li>
 <li><em>Step3</em>&#xFF1A;&#x591F;&#x5EFA;&#x6587;&#x4EF6;<a href="./Server/src/TomcatResources.java"><code>TomcatResources.java</code></a>&#x3001;<a href="./Server/src/TomcatRunner.java"><code>TomcatRunner.java</code></a>&#x53CA;&#x57FA;&#x672C;&#x914D;&#x7F6E;<a href="./Server/src/conf/runner.properties"><code>runner.properties</code></a>&#x3001;<a href="./Server/src/conf/server.xml"><code>server.xml</code></a></li>
 </ul>
 <pre data-role="codeBlock" data-info="txt" class="language-txt"><code>Server:
@@ -398,9 +406,140 @@ version             What version of tomcat are you running?
             server.xml
             ...
 </code></pre><ul>
-<li><em>Step4</em>&#xFF1A;&#x7F16;&#x8F91;<code>server.xml</code>&#x6587;&#x4EF6;&#x5B8C;&#x5584;&#x914D;&#x7F6E;&#x3002;</li>
+<li><em>Step4</em>&#xFF1A;&#x7F16;&#x8F91;<code>server.xml</code>&#x6587;&#x4EF6;&#x5B8C;&#x5584;&#x914D;&#x7F6E;</li>
+<li><em>Step5</em>&#xFF1A;&#x8FD0;&#x884C;<code>TomcatRunner.java</code></li>
 </ul>
-<h2 class="mume-header" id="web-project">Web Project</h2>
+<h3 class="mume-header" id="server">Server</h3>
+
+<pre data-role="codeBlock" data-info="xml" class="language-xml"><span class="token prolog">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="token comment">&lt;!-- 
+    Server          : &#x4EE3;&#x8868;&#x6574;&#x4E2A;Tomcat&#x5BB9;&#x5668;
+    Server.port     : &#x63A5;&#x6536;&#x5173;&#x95ED;&#x6307;&#x4EE4;&#x7684;&#x7AEF;&#x53E3;&#x53F7;
+    Server.shutdown : &#x5173;&#x95ED;&#x6307;&#x4EE4;&#x540D;&#x79F0;
+ --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Server</span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>8005<span class="token punctuation">&quot;</span></span> <span class="token attr-name">shutdown</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>SHUTDOWN<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Service</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>Catalina<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!-- &#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0; --&gt;</span>
+
+        <span class="token comment">&lt;!-- 
+            Connector                   : &#x628A;&#x4EA7;&#x751F;&#x7684;Request&#x548C;Response&#x5BF9;&#x8C61;&#x4F20;&#x7ED9;Engine
+            Connector.port              : &#x7AEF;&#x53E3;
+            Connector.protocol          : &#x534F;&#x8BAE;
+                                            HTTP/1.1 : &#x7528;&#x6237;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;
+                                            AJP/1.3  : &#x548C;&#x5176;&#x4ED6;&#x670D;&#x52A1;&#x901A;&#x4FE1;
+            Connector.connectionTimeout : &#x8D85;&#x65F6;&#x65F6;&#x95F4;
+            Connector.redirectPort      : &#x5F53;&#x8D44;&#x6E90;&#x8981;&#x6C42;HTTPS&#x800C;&#x8BF7;&#x6C42;&#x662F;HTTP&#x65F6;&#xFF0C;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x7684;&#x7AEF;&#x53E3;
+        --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Connector</span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>8008<span class="token punctuation">&quot;</span></span> <span class="token attr-name">protocol</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>HTTP/1.1<span class="token punctuation">&quot;</span></span> <span class="token attr-name">connectionTimeout</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>20000<span class="token punctuation">&quot;</span></span> <span class="token attr-name">redirectPort</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>8443<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Connector</span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>8009<span class="token punctuation">&quot;</span></span> <span class="token attr-name">protocol</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>AJP/1.3<span class="token punctuation">&quot;</span></span> <span class="token attr-name">redirectPort</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>8443<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+
+        <span class="token comment">&lt;!-- &#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0; --&gt;</span>
+
+        <span class="token comment">&lt;!-- 
+            Engine             : &#x6BCF;&#x4E2A;Service&#x4E2D;&#x4EC5;&#x6709;&#x4E00;&#x4E2A;Engine
+            Engine.name        : &#x7528;&#x4E8E;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x65F6;&#x6307;&#x660E;&#x8EAB;&#x4EFD;
+            Engine.defaultHost : &#x6709;&#x4E14;&#x4EC5;&#x6709;&#x4E00;&#x4E2A; Host.name == Engine.defaultHost
+         --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Engine</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>Catalina<span class="token punctuation">&quot;</span></span> <span class="token attr-name">defaultHost</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>localhost<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token comment">&lt;!-- 
+                Host
+                Host.name            : &#x5728;DNS&#x4E2D;&#x6CE8;&#x518C;&#x7684;&#x4E3B;&#x673A;&#x540D;
+                Host.appBase         : Web&#x5E94;&#x7528;&#x5B58;&#x653E;&#x76EE;&#x5F55;&#xFF0C;&#x4E5F;&#x53EF;&#x6307;&#x5B9A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;
+                Host.unpackWARs      : &#x901A;&#x8FC7;&#x89E3;&#x538B;&#x540E;&#x7684;War&#x6587;&#x4EF6;&#x8FD0;&#x884C;Web&#x5E94;&#x7528;&#xFF1F;
+                Host.autoDeploy      : &#x81EA;&#x52A8;&#x90E8;&#x7F72;&#xFF1F;
+                Host.deployOnStartup : &#x542F;&#x52A8;&#x65F6;&#x90E8;&#x7F72;&#xFF1F;
+             --&gt;</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Host</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>localhost<span class="token punctuation">&quot;</span></span>  <span class="token attr-name">appBase</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>webapps<span class="token punctuation">&quot;</span></span> <span class="token attr-name">unpackWARs</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">autoDeploy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token comment">&lt;!-- 
+                    Context: &#x90E8;&#x7F72;&#x4E00;&#x4E2A;&#x4E0D;&#x5728;Host.appBase&#x4E0B;&#x7684;&#x5E94;&#x7528;
+                    Context.docBase    : &#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x6216;war&#x5305;&#x5730;&#x5740;
+                    Context.path       : &#x6620;&#x5C04;&#x8DEF;&#x5F84;&#xFF08;&#x81EA;&#x52A8;&#x90E8;&#x7F72;&#x65F6;war&#x5305;&#x4E0D;&#x6307;&#x5B9A;&#xFF09;
+                    Context.reloadable : &#x68C0;&#x67E5;&#x5E94;&#x7528;&#x4FEE;&#x6539;&#x5E76;&#x81EA;&#x52A8;&#x91CD;&#x8F7D;&#xFF1F;
+                 --&gt;</span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Context</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>/hello<span class="token punctuation">&quot;</span></span> <span class="token attr-name">docBase</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>C:\Tomcat\Hello<span class="token punctuation">&quot;</span></span> <span class="token attr-name">reloadable</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Host</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Engine</span><span class="token punctuation">&gt;</span></span>
+
+        <span class="token comment">&lt;!-- &#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0; --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Service</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Server</span><span class="token punctuation">&gt;</span></span>
+</pre><h4 class="mume-header" id="listener">Listener</h4>
+
+<p>&#x5728;&#x7279;&#x5B9A;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#x6267;&#x884C;&#x7279;&#x5B9A;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;Server&#x3001;Engine&#x3001;Host&#x6216;Context&#x4E2D;&#x3002;</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml"><span class="token prolog">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Server</span> <span class="token attr-name">...</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- &#x8BB0;&#x5F55;Tomcat&#x4FE1;&#x606F;&#xFF08;&#x5FC5;&#x987B;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#xFF09; --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Listener</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.apache.catalina.startup.VersionLoggerListener<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment">&lt;!-- &#x52A0;&#x8F7D;Apache Portable Runtime --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Listener</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.apache.catalina.core.AprLifecycleListener<span class="token punctuation">&quot;</span></span> <span class="token attr-name">SSLEngine</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>on<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment">&lt;!-- &#xFF08;Tomcat7&#xFF09;&#x521D;&#x59CB;&#x5316;JSP&#x5F15;&#x64CE;Jasper --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Listener</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.apache.catalina.core.JasperListener<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment">&lt;!-- &#x9884;&#x9632;&#x5185;&#x5B58;&#x6CC4;&#x9732; --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Listener</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.apache.catalina.core.JreMemoryLeakPreventionListener<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment">&lt;!-- &#x521D;&#x59CB;&#x5316;&#x5168;&#x5C40;&#x8D44;&#x6E90; --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Listener</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.apache.catalina.mbeans.GlobalResourcesLifecycleListener<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment">&lt;!-- 
+        &#x5F53;Web&#x5E94;&#x7528;&#x56E0;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x800C;&#x8981;&#x505C;&#x6B62;&#x65F6;&#x4F1A;&#x89E6;&#x53D1;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x7EBF;&#x7A0B;&#x7684;&#x66F4;&#x65B0;
+        &#x53EA;&#x6709;&#x5F53;&#x8BE5;&#x5E94;&#x7528;&#x7684; Context.renewThreadsWhenStoppingContext = true &#x624D;&#x4F1A;&#x6709;&#x6548;
+     --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Listener</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.apache.catalina.core.ThreadLocalLeakPreventionListener<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token comment">&lt;!-- ... --&gt;</span>
+</pre><h4 class="mume-header" id="globalnamingresources">GlobalNamingResources</h4>
+
+<pre data-role="codeBlock" data-info="xml" class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>GlobalNamingResources</span> <span class="token attr-name">...</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- 
+        Environment
+     --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Environment</span>
+            <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>PI<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>3.14<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>java.lang.Float<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">description</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>&#x5706;&#x5468;&#x7387;<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">override</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>false<span class="token punctuation">&quot;</span></span>
+        <span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment">&lt;!-- 
+        Resource
+     --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Resource</span>
+            <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UserDatabase<span class="token punctuation">&quot;</span></span> <span class="token attr-name">auth</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>Container<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.apache.catalina.UserDatabase<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">description</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>&#x53EF;&#x4EE5;&#x66F4;&#x65B0;&#x548C;&#x4FDD;&#x5B58;&#x7684;&#x7528;&#x6237;&#x6570;&#x636E;&#x5E93;<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">factory</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.apache.catalina.users.MemoryUserDatabaseFactory<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">pathname</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>conf/tomcat-users.xml<span class="token punctuation">&quot;</span></span>
+        <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>GlobalNamingResources</span><span class="token punctuation">&gt;</span></span>
+</pre><h4 class="mume-header" id="realm">Realm</h4>
+
+<p>&#x4E00;&#x4E2A;&#x5B58;&#x50A8;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x7684;&#x201C;&#x6570;&#x636E;&#x5E93;&#x201D;&#x518D;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x679A;&#x4E3E;&#x5217;&#x8868;&#x3002;</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Realm</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.apache.catalina.realm.LockOutRealm<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Realm</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.apache.catalina.realm.UserDatabaseRealm<span class="token punctuation">&quot;</span></span> <span class="token attr-name">resourceName</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UserDatabase<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Realm</span><span class="token punctuation">&gt;</span></span>
+</pre><h4 class="mume-header" id="valve">Valve</h4>
+
+<pre data-role="codeBlock" data-info="xml" class="language-xml"><span class="token comment">&lt;!-- 
+    AccessLogValve.directory : &#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x76EE;&#x5F55;
+    AccessLogValve.prefix    : &#x6587;&#x4EF6;&#x540D;&#x524D;&#x7F00;
+    AccessLogValve.suffix    : &#x6587;&#x4EF6;&#x540D;&#x540E;&#x7F00;
+    AccessLogValve.pattern   :
+        %l&#xFF1A;&#x8FDC;&#x7A0B;&#x7684;&#x903B;&#x8F91;&#x7528;&#x6237;&#x540D;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&quot;-&quot;
+        %u&#xFF1A;&#x6388;&#x6743;&#x7684;&#x8FDC;&#x7A0B;&#x7528;&#x6237;&#x540D;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&quot;-&quot;
+        %t&#xFF1A;&#x8BBF;&#x95EE;&#x65F6;&#x95F4;
+        %r&#xFF1A;&#x8BF7;&#x6C42;&#x884C;
+        %s&#xFF1A;&#x54CD;&#x5E94;&#x72B6;&#x6001;&#x7801;
+        %b&#xFF1A;&#x54CD;&#x5E94;&#x4F53;&#x957F;&#x5EA6;
+ --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Valve</span>
+        <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>org.apache.catalina.valves.AccessLogValve<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">directory</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>logs<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">prefix</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>localhost_access_log<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">suffix</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>.txt<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">pattern</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>%h %l %u %t <span class="token entity" title="&quot;">&amp;quot;</span>%r<span class="token entity" title="&quot;">&amp;quot;</span> %s %b<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">/&gt;</span></span>
+</pre><h2 class="mume-header" id="web-project">Web Project</h2>
 
 <h3 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84">&#x9879;&#x76EE;&#x7ED3;&#x6784;</h3>
 
@@ -434,8 +573,7 @@ version             What version of tomcat are you running?
 <p>2&#x3001;&#x4FEE;&#x6539;<code>conf/server.xml</code>&#x6587;&#x4EF6;</p>
 <pre data-role="codeBlock" data-info="XML" class="language-xml">      <span class="token comment">&lt;!-- ... --&gt;</span>
 
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Host</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>localhost<span class="token punctuation">&quot;</span></span>  <span class="token attr-name">appBase</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>webapps<span class="token punctuation">&quot;</span></span>
-            <span class="token attr-name">unpackWARs</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">autoDeploy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Host</span> <span class="token attr-name">...</span><span class="token punctuation">&gt;</span></span>
 
         <span class="token comment">&lt;!-- &#x2193;&#x2193;&#x2193;&#x65B0;&#x589E;&#x90E8;&#x5206;&#x2193;&#x2193;&#x2193; --&gt;</span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span> <span class="token attr-name">docBase</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;}<span class="token punctuation">&quot;</span></span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{&#x6620;&#x5C04;URL}<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>

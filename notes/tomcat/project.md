@@ -40,8 +40,7 @@ Project:
 ```XML
       <!-- ... -->
 
-      <Host name="localhost"  appBase="webapps"
-            unpackWARs="true" autoDeploy="true">
+      <Host ...>
 
         <!-- ↓↓↓新增部分↓↓↓ -->
         <Content docBase="{系统目录}" path="{映射URL}"/>
