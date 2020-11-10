@@ -92,8 +92,8 @@ BUILD SUCCESSFUL
 
 ```txt
 demo:
-│  build.gradle                                 打包配置
-│  settings.gradle                              项目配置
+│  build.gradle                                 <打包配置>
+│  settings.gradle                              <项目配置>
 │  gradlew                                      Wrapper自动生成
 │  gradlew.bat                                  Wrapper自动生成
 │
@@ -108,7 +108,7 @@ demo:
 │          gradle-wrapper.jar
 │          gradle-wrapper.properties
 │
-└─src                                           源代码
+└─src                                           <源代码>
     ├─main
     │  ├─java
     │  │  └─demo
@@ -123,9 +123,7 @@ demo:
         └─resources
 ```
 
-### wrapper
-
-`gradle`、`gradlew`、`gradlew.bat`这三个文件由wrapper自动生成，用于在没有gradle的情况下自动下载，删除不会影响当前环境的构建。
+### 清理冗余
 
 ```bash
 # 清理Build
@@ -134,6 +132,10 @@ rm -rf ./.gradle ./build
 # 删除Wrapper
 rm -rf ./gradle ./gradlew ./gradlew.bat
 ```
+
+### wrapper
+
+`gradle`、`gradlew`、`gradlew.bat`这三个文件由wrapper自动生成，用于在没有gradle的情况下自动下载，删除不会影响当前环境的构建。
 
 ```bash
 # 运行
