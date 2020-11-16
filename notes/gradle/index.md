@@ -173,3 +173,28 @@ https://www.jianshu.com/p/5d30f1443aa6
 ```bash
 gradle -q HelloGroovy
 ```
+
+## Build
+
+### Source
+
+```java
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', 'src/main/another']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java', 'src/test/thrift']
+        }
+        resources {
+            srcDirs = ['src/test/resources']
+        }
+    }
+}
+```

@@ -276,6 +276,11 @@ pre[data-line] .line-highlight[data-end]:after {
 </ul>
 </li>
 <li><a href="#hellogroovy">HelloGroovy</a></li>
+<li><a href="#build">Build</a>
+<ul>
+<li><a href="#source">Source</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -410,6 +415,28 @@ gradlew clean
 
 <p><a href="groovy/build.gradle"><code>build.gradle</code></a></p>
 <pre data-role="codeBlock" data-info="bash" class="language-bash">gradle -q HelloGroovy
+</pre><h2 class="mume-header" id="build">Build</h2>
+
+<h3 class="mume-header" id="source">Source</h3>
+
+<pre data-role="codeBlock" data-info="java" class="language-java">sourceSets <span class="token punctuation">{</span>
+    main <span class="token punctuation">{</span>
+        java <span class="token punctuation">{</span>
+            srcDirs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;src/main/java&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;src/main/another&apos;</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+        resources <span class="token punctuation">{</span>
+            srcDirs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;src/main/resources&apos;</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    test <span class="token punctuation">{</span>
+        java <span class="token punctuation">{</span>
+            srcDirs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;src/test/java&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;src/test/thrift&apos;</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+        resources <span class="token punctuation">{</span>
+            srcDirs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;src/test/resources&apos;</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </pre>
       </div>
       
