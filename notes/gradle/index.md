@@ -7,10 +7,18 @@
 
 ## 配置镜像
 
+```batch
+REM Windows
+notepad "%Userprofile%\.gradle\init.gradle"
+```
+
 ```bash
 # Cygwin
 if [ ! -d ~/.gradle ]; then cmd /c mklink /j "$(cygpath -w ~/.gradle)" "$(cmd /c ECHO %Userprofile%\\.gradle)"; fi
+vim ~/.gradle/init.gradle
+```
 
+```bash
 # Linux
 vim ~/.gradle/init.gradle
 ```
@@ -157,11 +165,10 @@ gradlew clean
 
 <!-- 
 https://www.jianshu.com/p/5d30f1443aa6
+@import "groovy/build.gradle" {code_block=true as='java' class='line-numbers'}
  -->
 
-`build.gradle`
-
-@import "groovy/build.gradle" {code_block=true as='java' class='line-numbers'}
+[`build.gradle`](groovy/build.gradle)
 
 ```bash
 gradle -q HelloGroovy
