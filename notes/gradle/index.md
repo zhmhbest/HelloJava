@@ -153,53 +153,12 @@ gradlew run
 gradlew clean
 ```
 
-<!--
-## Settings
-
-```java
-rootProject.name = 'demo'
-```
-
-## Build
--->
-
-<!--
-## Hello
-
->[Download Gradle](https://gradle.org/releases/)
+## HelloGroovy
 
 `build.gradle`
 
-```js
-task hello {
-    doLast {
-        println 'Hello!'
-    }
-}
-```
+@import "groovy/build.gradle" {code_block=true as='java' class='line-numbers'}
 
-```batch
-gradle -q hello
+```bash
+gradle -q HelloGroovy
 ```
-
-```txt
-Hello!
-```
-
-`build.gradle`
-
-```js
-task hello {
-    String hello = 'Hello!'
-    println hello.toUpperCase()
-}
-```
-
-```batch
-gradle -q hello
-```
-
-```txt
-HELLO!
-```
--->

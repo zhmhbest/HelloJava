@@ -275,6 +275,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#wrapper">wrapper</a></li>
 </ul>
 </li>
+<li><a href="#hellogroovy">HelloGroovy</a></li>
 </ul>
 </li>
 </ul>
@@ -403,6 +404,87 @@ gradle wrapper
 <span class="token comment"># &#x8FD0;&#x884C;</span>
 gradlew run
 gradlew clean
+</pre><h2 class="mume-header" id="hellogroovy">HelloGroovy</h2>
+
+<p><code>build.gradle</code></p>
+<pre data-role="codeBlock" data-info="java code_block=true as=&quot;java&quot; class=&quot;line-numbers&quot;" class="language-java line-numbers">task <span class="token class-name">HelloGroovy</span> <span class="token punctuation">{</span>
+    def hello <span class="token operator">=</span> <span class="token string">&quot;Hello&quot;</span> <span class="token comment">// &#x81EA;&#x52A8;&#x7C7B;&#x578B;&#x63A8;&#x65AD;</span>
+    <span class="token keyword">final</span> <span class="token keyword">float</span> PI <span class="token operator">=</span> <span class="token number">3.1415</span>
+    <span class="token function">testVariable</span><span class="token punctuation">(</span>hello<span class="token punctuation">)</span>
+    testVariable PI <span class="token comment">// &#x62EC;&#x53F7;&#x7701;&#x7565;</span>
+
+    <span class="token comment">// == is</span>
+    def l1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    def l2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    def l3 <span class="token operator">=</span> l1
+    <span class="token function">println</span><span class="token punctuation">(</span>l1 <span class="token operator">==</span> l2<span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>l1<span class="token punctuation">.</span><span class="token function">is</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>l1<span class="token punctuation">.</span><span class="token function">is</span><span class="token punctuation">(</span>l3<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// String</span>
+    def str1 <span class="token operator">=</span> <span class="token string">&quot;String&quot;</span>
+    def str2 <span class="token operator">=</span> <span class="token string">&apos;String&apos;</span>
+    def str3 <span class="token operator">=</span> <span class="token string">&quot;${str1} and ${str2}&quot;</span>
+    <span class="token function">testVariable</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span>
+    <span class="token function">testVariable</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span>
+    <span class="token function">testVariable</span><span class="token punctuation">(</span>str3<span class="token punctuation">)</span>
+
+    <span class="token comment">// List</span>
+    def list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token function">testVariable</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    list <span class="token operator">&lt;&lt;</span> <span class="token number">50</span><span class="token punctuation">;</span> list <span class="token operator">&lt;&lt;</span> <span class="token number">40</span><span class="token punctuation">;</span> list <span class="token operator">&lt;&lt;</span> <span class="token number">30</span><span class="token punctuation">;</span> list <span class="token operator">&lt;&lt;</span> <span class="token number">20</span><span class="token punctuation">;</span> list <span class="token operator">&lt;&lt;</span> <span class="token number">10</span>
+                    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;List          :\t %s\n&quot;</span><span class="token punctuation">,</span> list<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">999</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;List.push(999):\t %s\n&quot;</span><span class="token punctuation">,</span> list<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">666</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;List.add(666) :\t %s\n&quot;</span><span class="token punctuation">,</span> list<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    list<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;List.pop()    :\t %s\n&quot;</span><span class="token punctuation">,</span> list<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    list<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;List.remove(1):\t %s\n&quot;</span><span class="token punctuation">,</span> list<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    list <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;List.reverse():\t %s\n&quot;</span><span class="token punctuation">,</span> list<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;List.sort()   :\t %s\n&quot;</span><span class="token punctuation">,</span> list<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    list<span class="token punctuation">.</span>each <span class="token punctuation">{</span>
+        println <span class="token string">&quot;List.each: $it&quot;</span>
+    <span class="token punctuation">}</span>
+    list<span class="token punctuation">.</span>eachWithIndex<span class="token punctuation">{</span> def entry<span class="token punctuation">,</span> <span class="token keyword">int</span> i <span class="token operator">-&gt;</span>
+        println <span class="token string">&quot;List.eachWithIndex: $i $entry&quot;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Map</span>
+    def map <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">:</span><span class="token punctuation">]</span>
+    <span class="token function">testVariable</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span>
+    map<span class="token punctuation">.</span><span class="token class-name">Name</span> <span class="token operator">=</span> <span class="token string">&quot;Tomcat&quot;</span>
+    map<span class="token punctuation">[</span><span class="token string">&quot;Gender&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;f&quot;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;Age&quot;</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">)</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;Map                  :\t %s\n&quot;</span><span class="token punctuation">,</span> map<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;Map.size()           :\t %s\n&quot;</span><span class="token punctuation">,</span> map<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;Map.containsKey(&apos;Id&apos;):\t %s\n&quot;</span><span class="token punctuation">,</span> map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span><span class="token string">&quot;Id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;Map.get(&apos;Name&apos;)      :\t %s\n&quot;</span><span class="token punctuation">,</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;Name&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    map<span class="token punctuation">.</span>each <span class="token punctuation">{</span> <span class="token class-name">Map</span><span class="token punctuation">.</span><span class="token class-name">Entry</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> entry <span class="token operator">-&gt;</span>
+        println <span class="token string">&quot;Map.each: $entry.key = $entry.value&quot;</span>
+    <span class="token punctuation">}</span>
+    map<span class="token punctuation">.</span>eachWithIndex <span class="token punctuation">{</span> <span class="token class-name">Map</span><span class="token punctuation">.</span><span class="token class-name">Entry</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> entry<span class="token punctuation">,</span> <span class="token keyword">int</span> i <span class="token operator">-&gt;</span>
+        println <span class="token string">&quot;Map.eachWithIndex: $i $entry.key = $entry.value&quot;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Closer</span>
+    def helloCloser <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;This is a HelloCloser&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+    <span class="token function">testVariable</span><span class="token punctuation">(</span>helloCloser<span class="token punctuation">)</span>
+    <span class="token function">helloCloser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def sumCloser <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token punctuation">,</span> b <span class="token operator">-&gt;</span> a <span class="token operator">+</span> b <span class="token punctuation">}</span>
+    def mulCloser <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token keyword">float</span> a<span class="token punctuation">,</span> <span class="token keyword">float</span> b <span class="token operator">-&gt;</span> <span class="token keyword">return</span> a <span class="token operator">*</span> b <span class="token punctuation">}</span>
+    def sqrCloser <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token keyword">double</span> a <span class="token operator">-&gt;</span>
+        def b <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> b
+    <span class="token punctuation">}</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token function">sumCloser</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token function">mulCloser</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token function">sqrCloser</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">testVariable</span><span class="token punctuation">(</span><span class="token keyword">var</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%s %s\n&quot;</span><span class="token punctuation">,</span> <span class="token keyword">var</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">var</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><pre data-role="codeBlock" data-info="bash" class="language-bash">gradle -q HelloGroovy
 </pre>
       </div>
       

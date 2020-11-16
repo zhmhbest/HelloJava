@@ -1,0 +1,77 @@
+task HelloGroovy {
+    def hello = "Hello" // 自动类型推断
+    final float PI = 3.1415
+    testVariable(hello)
+    testVariable PI // 括号省略
+
+    // == is
+    def l1 = []
+    def l2 = []
+    def l3 = l1
+    println(l1 == l2)
+    println(l1.is(l2))
+    println(l1.is(l3))
+
+    // String
+    def str1 = "String"
+    def str2 = 'String'
+    def str3 = "${str1} and ${str2}"
+    testVariable(str1)
+    testVariable(str2)
+    testVariable(str3)
+
+    // List
+    def list = []
+    testVariable(list)
+    list << 50; list << 40; list << 30; list << 20; list << 10
+                    printf("List          :\t %s\n", list.toString())
+    list.push(999); printf("List.push(999):\t %s\n", list.toString())
+    list.add(666) ; printf("List.add(666) :\t %s\n", list.toString())
+    list.pop();     printf("List.pop()    :\t %s\n", list.toString())
+    list.remove(1); printf("List.remove(1):\t %s\n", list.toString())
+    list = list.reverse()
+    printf("List.reverse():\t %s\n", list.toString())
+    printf("List.sort()   :\t %s\n", list.sort().toString())
+    list.each {
+        println "List.each: $it"
+    }
+    list.eachWithIndex{ def entry, int i ->
+        println "List.eachWithIndex: $i $entry"
+    }
+
+    // Map
+    def map = [:]
+    testVariable(map)
+    map.Name = "Tomcat"
+    map["Gender"] = "f"
+    map.put("Age", 22)
+    printf("Map                  :\t %s\n", map.toString())
+    printf("Map.size()           :\t %s\n", map.size())
+    printf("Map.containsKey('Id'):\t %s\n", map.containsKey("Id"))
+    printf("Map.get('Name')      :\t %s\n", map.get("Name"))
+    map.each { Map.Entry<Object, Object> entry ->
+        println "Map.each: $entry.key = $entry.value"
+    }
+    map.eachWithIndex { Map.Entry<Object, Object> entry, int i ->
+        println "Map.eachWithIndex: $i $entry.key = $entry.value"
+    }
+
+    // Closer
+    def helloCloser = { println("This is a HelloCloser") }
+    testVariable(helloCloser)
+    helloCloser()
+    def sumCloser = { a, b -> a + b }
+    def mulCloser = { float a, float b -> return a * b }
+    def sqrCloser = { double a ->
+        def b = Math.sqrt(a)
+        return b
+    }
+    println(sumCloser(1, 2))
+    println(mulCloser(2, 3))
+    println(sqrCloser(16))
+
+}
+
+static void testVariable(var) {
+    printf("%s %s\n", var.getClass().getName().toString(), var)
+}
