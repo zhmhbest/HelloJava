@@ -19,4 +19,4 @@
 
 ## [SpringWeb](spring_web/index.html)
 
-## [Nutz](https://github.com/zhmhbest/Nutzbook)
+## [Nutz](nutz/index.html)
