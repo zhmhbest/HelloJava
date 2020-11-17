@@ -59,60 +59,9 @@
       </testResources>
       -->
 
-      <!-- 添加多个源码目录、资源目录 -->
-      <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>build-helper-maven-plugin</artifactId>
-          <version>1.8</version>
-          <executions>
-               <!-- 添加多个源码目录 -->
-              <execution>
-                  <id>add-source</id>
-                  <phase>initialize</phase>
-                  <goals><goal>add-source</goal></goals>
-                  <configuration>
-                      <sources>
-                          <source>${project.basedir}/src/main/java</source>
-                          <!-- ... -->
-                      </sources>
-                  </configuration>
-              </execution>
-
-               <!-- 添加多个资源目录 -->
-              <execution>
-                  <id>add-resource</id>
-                  <phase>initialize</phase>
-                  <goals><goal>add-resource</goal></goals>
-                  <configuration>
-                      <resources>
-                          <resource>
-                              <directory>${project.basedir}/src/main/conf</directory>
-                              <filtering>true</filtering>
-                              <excludes><exclude>**/*.java</exclude></excludes>
-                          </resource>
-                      </resources>
-                      <!-- ... -->
-                  </configuration>
-              </execution>
-
-              <!-- 添加多个测试源码目录 -->
-              <execution>
-                  <id>add-test-source</id>
-                  <phase>initialize</phase>
-                  <goals><goal>add-test-source</goal></goals>
-                  <configuration>
-                      <sources>
-                          <source>${project.basedir}/src/test/java</source>
-                          <!-- ... -->
-                      </sources>
-                  </configuration>
-              </execution>
-
-          </executions>
-      </plugin>
-
-      <!-- 源码版本、目标版本 -->
       <plugins>
+
+        <!-- 源码版本、目标版本 -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -122,9 +71,60 @@
             <target>8</target>
           </configuration>
         </plugin>
-      </plugins>
 
+        <!-- 添加多个源码目录、资源目录 -->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>1.8</version>
+            <executions>
+                <!-- 添加多个源码目录 -->
+                <execution>
+                    <id>add-source</id>
+                    <phase>initialize</phase>
+                    <goals><goal>add-source</goal></goals>
+                    <configuration>
+                        <sources>
+                            <source>${project.basedir}/src/main/java</source>
+                            <!-- ... -->
+                        </sources>
+                    </configuration>
+                </execution>
+
+                <!-- 添加多个资源目录 -->
+                <execution>
+                    <id>add-resource</id>
+                    <phase>initialize</phase>
+                    <goals><goal>add-resource</goal></goals>
+                    <configuration>
+                        <resources>
+                            <resource>
+                                <directory>${project.basedir}/src/main/conf</directory>
+                                <filtering>true</filtering>
+                                <excludes><exclude>**/*.java</exclude></excludes>
+                            </resource>
+                        </resources>
+                        <!-- ... -->
+                    </configuration>
+                </execution>
+
+                <!-- 添加多个测试源码目录 -->
+                <execution>
+                    <id>add-test-source</id>
+                    <phase>initialize</phase>
+                    <goals><goal>add-test-source</goal></goals>
+                    <configuration>
+                        <sources>
+                            <source>${project.basedir}/src/test/java</source>
+                            <!-- ... -->
+                        </sources>
+                    </configuration>
+                </execution>
+
+            </executions>
+        </plugin>
+
+        <!-- ... -->
+      </plugins>
     </build>
-    <!-- ... -->
-  
 </project>
