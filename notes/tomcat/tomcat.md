@@ -99,7 +99,7 @@ java \
 
 - *Step1*：新建**Java Module**命名为**Server**
 - *Step2*：引入依赖`${CATALINA_HOME}/bin/bootstrap.jar`、`${CATALINA_HOME}/bin/tomcat-juli.jar`
-- *Step3*：够建文件[`TomcatResources.java`](./Server/src/TomcatResources.java)、[`TomcatRunner.java`](./Server/src/TomcatRunner.java)及基本配置[`runner.properties`](./Server/src/conf/runner.properties)、[`server.xml`](./Server/src/conf/server.xml)
+- *Step3*：构建文件[`TomcatResources.java`](./Server/src/TomcatResources.java)、[`TomcatRunner.java`](./Server/src/TomcatRunner.java)及基本配置[`runner.properties`](./Server/src/conf/runner.properties)、[`server.xml`](./Server/src/conf/server.xml)
 
 ```txt
 Server:
