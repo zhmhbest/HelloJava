@@ -98,8 +98,8 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
   - test
     - java: 测试代码
     - resources: 测试配置文件
-  - pom.xml: mvn项目配置信息
-  - target: 编译和打包存储目录
+- pom.xml: mvn项目配置信息
+- target: 编译和打包存储目录
 
 ### pom.xml
 
