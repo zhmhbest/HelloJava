@@ -5,16 +5,7 @@
 
 [TOC]
 
-## Hello
-
-- [`Hello`](src/demoHello.java)
-- [`String`](src/demoString.java)
-- [`Scanner`](src/demoScanner.java)
-- [`Random`](src/demoRandom.java)
-- [`DateTime`](src/demoDateTime.java)
-- [`Lambda`](src/demoLambda.java)
-
-## [`IOStream`](src/demoIOStream.java)
+## IOStream
 
 ![stream](images/stream.png)
 
@@ -22,7 +13,7 @@
 
 ![collection](images/collection.png)
 
-### [`List`](src/demoCollectionList.java)
+### List
 
 #### ArrayList
 
@@ -45,14 +36,14 @@
 - 访问速度慢于ArrayList；
 - 内存不够时默认扩展1倍。
 
-### [`Set`](src/demoCollectionSet.java)
+### Set
 
 #### HashSet
 
 - 基于HashMap实现；
 - 非线程安全。
 
-### [`Queue`](src/demoCollectionQueue.java)
+### Queue
 
 #### Deque
 
@@ -62,7 +53,7 @@
 
 优先队列，根据排序规则决定谁在队头，谁在队尾
 
-## [`Map`](src/demoMap.java)
+## Map
 
 ![map](images/map.png)
 
@@ -86,3 +77,7 @@
 
 - 无论Key还是Value都不能为null；
 - 线程安全的。
+
+### 附件
+
+@import "src.md"
