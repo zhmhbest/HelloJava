@@ -81,7 +81,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
     <mirror>
       <id>alimaven</id>
       <name>AliyunMaven</name>
-  　　<url>https://maven.aliyun.com/repository/public</url>
+      <url>https://maven.aliyun.com/repository/public</url>
       <mirrorOf>central</mirrorOf>
     </mirror>
 
