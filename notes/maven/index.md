@@ -30,6 +30,10 @@ SET MAVEN_HOME=...
 REM 添加到系统环境变量PATH
 SET PATH=%PATH%;%MAVEN_HOME%\bin
 
+REM 链接全局
+MKLINK /J "%UserProfile%\.m2" "%MAVEN_HOME%\.m2"
+MKDIR "%MAVEN_HOME%\.m2"
+
 REM 测试环境
 mvn -v
 ```
@@ -82,7 +86,7 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
     </mirror>
 
     <!-- ... -->
-  
+
   </mirrors>
 
   <!-- ... -->

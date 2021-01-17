@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
       
       
       
@@ -336,6 +336,10 @@ pre[data-line] .line-highlight[data-end]:after {
 <span class="token comment">REM &#x6DFB;&#x52A0;&#x5230;&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x53D8;&#x91CF;PATH</span>
 <span class="token command"><span class="token keyword">SET</span> <span class="token variable">PATH</span><span class="token operator">=</span><span class="token variable">%PATH%</span>;<span class="token variable">%MAVEN_HOME%</span>\bin</span>
 
+<span class="token comment">REM &#x94FE;&#x63A5;&#x5168;&#x5C40;</span>
+<span class="token command"><span class="token keyword">MKLINK</span> <span class="token parameter attr-name">/J</span> <span class="token string">&quot;%UserProfile%\.m2&quot;</span> <span class="token string">&quot;%MAVEN_HOME%\.m2&quot;</span></span>
+<span class="token command"><span class="token keyword">MKDIR</span> <span class="token string">&quot;%MAVEN_HOME%\.m2&quot;</span></span>
+
 <span class="token comment">REM &#x6D4B;&#x8BD5;&#x73AF;&#x5883;</span>
 <span class="token command"><span class="token keyword">mvn</span> <span class="token parameter attr-name">-v</span></span>
 </pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>Apache Maven ?.?.?
@@ -381,7 +385,7 @@ OS name: &quot;windows 10&quot;, version: &quot;10.0&quot;, arch: &quot;amd64&qu
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">&gt;</span></span>
 
     <span class="token comment">&lt;!-- ... --&gt;</span>
-  
+
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrors</span><span class="token punctuation">&gt;</span></span>
 
   <span class="token comment">&lt;!-- ... --&gt;</span>
