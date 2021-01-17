@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
       
       
       
@@ -397,24 +397,24 @@ pre[data-line] .line-highlight[data-end]:after {
 
 <p><code>src/main/resources/ioc/dao.js</code></p>
 <pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">var</span> ioc <span class="token operator">=</span> <span class="token punctuation">{</span>
-    conf <span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        type <span class="token punctuation">:</span> <span class="token string">&quot;org.nutz.ioc.impl.PropertiesProxy&quot;</span><span class="token punctuation">,</span>
-        fields <span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            paths <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;properties/&quot;</span><span class="token punctuation">]</span>
+    conf <span class="token operator">:</span> <span class="token punctuation">{</span>
+        type <span class="token operator">:</span> <span class="token string">&quot;org.nutz.ioc.impl.PropertiesProxy&quot;</span><span class="token punctuation">,</span>
+        fields <span class="token operator">:</span> <span class="token punctuation">{</span>
+            paths <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;properties/&quot;</span><span class="token punctuation">]</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    dataSource <span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        factory <span class="token punctuation">:</span> <span class="token string">&quot;$conf#make&quot;</span><span class="token punctuation">,</span>
-        args <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;db.&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        type <span class="token punctuation">:</span> <span class="token string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span><span class="token punctuation">,</span>
-        events <span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            create <span class="token punctuation">:</span> <span class="token string">&quot;init&quot;</span><span class="token punctuation">,</span>
-            depose <span class="token punctuation">:</span> <span class="token string">&apos;close&apos;</span>
+    dataSource <span class="token operator">:</span> <span class="token punctuation">{</span>
+        factory <span class="token operator">:</span> <span class="token string">&quot;$conf#make&quot;</span><span class="token punctuation">,</span>
+        args <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;db.&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        type <span class="token operator">:</span> <span class="token string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span><span class="token punctuation">,</span>
+        events <span class="token operator">:</span> <span class="token punctuation">{</span>
+            create <span class="token operator">:</span> <span class="token string">&quot;init&quot;</span><span class="token punctuation">,</span>
+            depose <span class="token operator">:</span> <span class="token string">&apos;close&apos;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    dao <span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        type <span class="token punctuation">:</span> <span class="token string">&quot;org.nutz.dao.impl.NutDao&quot;</span><span class="token punctuation">,</span>
-        args <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>refer<span class="token punctuation">:</span><span class="token string">&quot;dataSource&quot;</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+    dao <span class="token operator">:</span> <span class="token punctuation">{</span>
+        type <span class="token operator">:</span> <span class="token string">&quot;org.nutz.dao.impl.NutDao&quot;</span><span class="token punctuation">,</span>
+        args <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>refer<span class="token operator">:</span><span class="token string">&quot;dataSource&quot;</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </pre><p><code>src/main/resources/properties/db.properties</code></p>
@@ -423,10 +423,10 @@ db.url<span class="token operator">=</span>jdbc:mysql://localhost:3306/nutzbook
 db.username<span class="token operator">=</span>nutz
 db.password<span class="token operator">=</span>nutz
 <span class="token comment"># db.validationQuery=select 1</span>
-db.maxActive<span class="token operator">=</span>100
+db.maxActive<span class="token operator">=</span><span class="token number">100</span>
 db.testWhileIdle<span class="token operator">=</span>true
 db.filters<span class="token operator">=</span>mergeStat
-db.connectionProperties<span class="token operator">=</span>druid.stat.slowSqlMillis<span class="token operator">=</span>2000
+db.connectionProperties<span class="token operator">=</span>druid.stat.slowSqlMillis<span class="token operator">=</span><span class="token number">2000</span>
 <span class="token comment"># db.defaultAutoCommit=true</span>
 </pre><h2 class="mume-header" id="%E6%B7%BB%E5%8A%A0%E6%BA%90%E7%A0%81">&#x6DFB;&#x52A0;&#x6E90;&#x7801;</h2>
 
@@ -449,9 +449,8 @@ db.connectionProperties<span class="token operator">=</span>druid.stat.slowSqlMi
                     *.java
 </code></pre><h4 class="mume-header" id="%E4%B8%BB%E6%A8%A1%E5%9D%97">&#x4E3B;&#x6A21;&#x5757;</h4>
 
-<p><code>src/main/java/MainModule.java</code></p>
 <pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
 <span class="token annotation punctuation">@Ok</span><span class="token punctuation">(</span><span class="token string">&quot;json:full&quot;</span><span class="token punctuation">)</span>                                <span class="token comment">// &#x6240;&#x6709;&#x63A7;&#x5236;&#x5668;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;JSON</span>
 <span class="token annotation punctuation">@SetupBy</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token class-name">Initializations</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>         <span class="token comment">// &#x521D;&#x59CB;&#x5316;&#x6A21;&#x5757;</span>
 <span class="token annotation punctuation">@IocBy</span><span class="token punctuation">(</span>args <span class="token operator">=</span> <span class="token punctuation">{</span>                                 <span class="token comment">// &#x6574;&#x4E2A;&#x5E94;&#x7528;&#x5C06;&#x91C7;&#x7528;&#x4F55;&#x79CD;&#x65B9;&#x5F0F;&#x6784;&#x5EFA; Ioc &#x5BB9;&#x5668;</span>
@@ -464,13 +463,12 @@ db.connectionProperties<span class="token operator">=</span>druid.stat.slowSqlMi
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainModule</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
 </pre><h4 class="mume-header" id="%E5%88%9D%E5%A7%8B%E5%8C%96">&#x521D;&#x59CB;&#x5316;</h4>
 
-<p><code>org/example/nutzbook/Initializations.java</code></p>
 <pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>dao</span><span class="token punctuation">.</span><span class="token class-name">Dao</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>dao<span class="token punctuation">.</span>util</span><span class="token punctuation">.</span><span class="token class-name">Daos</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>ioc</span><span class="token punctuation">.</span><span class="token class-name">Ioc</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>mvc</span><span class="token punctuation">.</span><span class="token class-name">NutConfig</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>mvc</span><span class="token punctuation">.</span><span class="token class-name">Setup</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>dao<span class="token punctuation">.</span></span><span class="token class-name">Dao</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>dao<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Daos</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>ioc<span class="token punctuation">.</span></span><span class="token class-name">Ioc</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span></span><span class="token class-name">NutConfig</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span></span><span class="token class-name">Setup</span><span class="token punctuation">;</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Initializations</span> <span class="token keyword">implements</span> <span class="token class-name">Setup</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token class-name">NutConfig</span> nc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// &#x82E5;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x521B;&#x5EFA;&#x6240;&#x6709;&#x6570;&#x636E;&#x8868;</span>
@@ -480,8 +478,8 @@ db.connectionProperties<span class="token operator">=</span>druid.stat.slowSqlMi
         <span class="token class-name">Daos</span><span class="token punctuation">.</span><span class="token function">createTablesInPackage</span><span class="token punctuation">(</span>dao<span class="token punctuation">,</span> scanPackageName<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token comment">// &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7528;&#x6237;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>dao<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span>org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook<span class="token punctuation">.</span>model<span class="token punctuation">.</span><span class="token class-name">User</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook<span class="token punctuation">.</span>model<span class="token punctuation">.</span><span class="token class-name">User</span> user <span class="token operator">=</span> <span class="token keyword">new</span> org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook<span class="token punctuation">.</span>model<span class="token punctuation">.</span><span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>dao<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook<span class="token punctuation">.</span>model<span class="token punctuation">.</span></span>User</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook<span class="token punctuation">.</span>model<span class="token punctuation">.</span></span>User</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook<span class="token punctuation">.</span>model<span class="token punctuation">.</span></span>User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             user<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">&quot;admin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             user<span class="token punctuation">.</span><span class="token function">setPassword</span><span class="token punctuation">(</span><span class="token string">&quot;admin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             dao<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -491,9 +489,8 @@ db.connectionProperties<span class="token operator">=</span>druid.stat.slowSqlMi
 <span class="token punctuation">}</span>
 </pre><h4 class="mume-header" id="%E6%A8%A1%E5%9E%8B">&#x6A21;&#x578B;</h4>
 
-<p><code>src/main/java/org/example/nutzbook/model/User.java</code></p>
 <pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook<span class="token punctuation">.</span>model</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>dao<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>dao<span class="token punctuation">.</span>entity<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
 <span class="token annotation punctuation">@Table</span><span class="token punctuation">(</span><span class="token string">&quot;tbl_user&quot;</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
     <span class="token annotation punctuation">@Id</span>
@@ -509,15 +506,14 @@ db.connectionProperties<span class="token operator">=</span>druid.stat.slowSqlMi
 <span class="token punctuation">}</span>
 </pre><h4 class="mume-header" id="%E6%8E%A5%E5%8F%A3">&#x63A5;&#x53E3;</h4>
 
-<p><code>src/main/java/org/example/nutzbook/controller/UserController.java</code></p>
 <pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook<span class="token punctuation">.</span>controller</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook<span class="token punctuation">.</span>model</span><span class="token punctuation">.</span><span class="token class-name">User</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>dao</span><span class="token punctuation">.</span><span class="token class-name">Cnd</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>dao</span><span class="token punctuation">.</span><span class="token class-name">Dao</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>ioc<span class="token punctuation">.</span>loader<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">Inject</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>ioc<span class="token punctuation">.</span>loader<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span><span class="token class-name">IocBean</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span>annotation</span><span class="token punctuation">.</span>*<span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http</span><span class="token punctuation">.</span><span class="token class-name">HttpSession</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>nutzbook<span class="token punctuation">.</span>model<span class="token punctuation">.</span></span><span class="token class-name">User</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>dao<span class="token punctuation">.</span></span><span class="token class-name">Cnd</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>dao<span class="token punctuation">.</span></span><span class="token class-name">Dao</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>ioc<span class="token punctuation">.</span>loader<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Inject</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>ioc<span class="token punctuation">.</span>loader<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">IocBean</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>nutz<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token class-name">HttpSession</span><span class="token punctuation">;</span>
 <span class="token annotation punctuation">@IocBean</span>
 <span class="token annotation punctuation">@At</span><span class="token punctuation">(</span><span class="token string">&quot;/user&quot;</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserController</span> <span class="token punctuation">{</span>

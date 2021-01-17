@@ -185,8 +185,6 @@ src:
 
 #### 主模块
 
-`src/main/java/MainModule.java`
-
 ```java
 package org.example.nutzbook;
 import org.nutz.mvc.annotation.*;
@@ -203,8 +201,6 @@ public class MainModule { }
 ```
 
 #### 初始化
-
-`org/example/nutzbook/Initializations.java`
 
 ```java
 package org.example.nutzbook;
@@ -235,8 +231,6 @@ public class Initializations implements Setup {
 
 #### 模型
 
-`src/main/java/org/example/nutzbook/model/User.java`
-
 ```java
 package org.example.nutzbook.model;
 import org.nutz.dao.entity.annotation.*;
@@ -256,8 +250,6 @@ public class User {
 ```
 
 #### 接口
-
-`src/main/java/org/example/nutzbook/controller/UserController.java`
 
 ```java
 package org.example.nutzbook.controller;

@@ -6,4 +6,5 @@ META-INF/
 classes/
 lib/
 *.iml
+*.log
 .gradle
