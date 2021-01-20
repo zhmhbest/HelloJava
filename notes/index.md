@@ -18,5 +18,3 @@
 ### [Gradle](gradle/index.html)
 
 ## [SpringWeb](spring_web/index.html)
-
-## [Nutz](nutz/index.html)
