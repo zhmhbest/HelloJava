@@ -173,6 +173,12 @@ mvn dependency:sources
 mvn dependency:resolve -Dclassifier=javadoc
 ```
 
+### 依赖提取
+
+```bash
+mvn dependency:copy-dependencies -DoutputDirectory=target/lib
+```
+
 ## IDEA配置
 
 配置本地maven位置

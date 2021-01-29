@@ -1,130 +1,144 @@
 <project>
 
-    <!-- 模型版本 -->
+    <!-- Maven模型版本 -->
     <modelVersion>4.0.0</modelVersion>
-
-    <!-- 组织的唯一ID -->
+    <!-- 组织唯一ID -->
     <groupId>org.example</groupId>
-
-    <!-- 项目的唯一ID，一个groupId下面可能多个项目，靠artifactId来区分 -->
-    <artifactId>hello-maven</artifactId>
-
-    <!-- 项目名称 -->
-    <name>Hello Maven App</name>
-
-    <!-- 版本号 -->
+    <!-- 项目唯一ID，一个groupId下面可能多个项目，靠artifactId来区分 -->
+    <artifactId>hello</artifactId>
+    <!-- 项目版本 -->
     <version>1.0-SNAPSHOT</version>
-
     <!-- 打包格式 jar/war -->
     <packaging>jar</packaging>
 
-    <!-- 自定义变量 -->
+
+    <!-- 其它说明信息 -->
+    <licenses></licenses>
+    <url></url>
+    <name></name>
+
+
     <properties>
-      <变量名>值</变量名>
-      <!-- ${变量名} -->
+        <!-- 源码版本、目标版本 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- 自定义变量 -->
+        <变量名>值</变量名>
     </properties>
+
 
     <!-- 引入外部依赖 -->
     <dependencies>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>3.8.1</version>
-        <scope>test</scope>
-      </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <!-- 打包配置 -->
     <build>
-      <finalName>${project.artifactId}</finalName>
+        <finalName>${project.artifactId}</finalName>
 
-      <!-- 覆写约定目录 -->
-      <!--
-      <directory>${project.basedir}/target</directory>
-      <resources>
-          <resource>
-              <directory>${project.basedir}/src/main/java</directory>
-          </resource>
-          <resource>
-              <directory>${project.basedir}/src/main/resources</directory>
-          </resource>
-      </resources>
-      <testResources>
-          <testResource>
-              <directory>${project.basedir}/src/test/java</directory>
-          </testResource>
-          <testResource>
-              <directory>${project.basedir}/src/test/resources</directory>
-          </testResource>
-      </testResources>
-      -->
+        <!-- 覆写约定目录 -->
+        <!--
+        <directory>${project.basedir}/target</directory>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/java</directory>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${project.basedir}/src/test/java</directory>
+            </testResource>
+            <testResource>
+                <directory>${project.basedir}/src/test/resources</directory>
+            </testResource>
+        </testResources>
+        -->
 
-      <plugins>
+        <plugins>
 
-        <!-- 源码版本、目标版本 -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <configuration>
-            <encoding>UTF-8</encoding>
-            <source>8</source>
-            <target>8</target>
-          </configuration>
-        </plugin>
+            <!-- 源码版本、目标版本 -->
+            <!-- <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin> -->
 
-        <!-- 添加多个源码目录、资源目录 -->
-        <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>build-helper-maven-plugin</artifactId>
-            <version>1.8</version>
-            <executions>
-                <!-- 添加多个源码目录 -->
-                <execution>
-                    <id>add-source</id>
-                    <phase>initialize</phase>
-                    <goals><goal>add-source</goal></goals>
-                    <configuration>
-                        <sources>
-                            <source>${project.basedir}/src/main/java</source>
+            <!-- 添加多个源码目录、资源目录 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <!-- 添加多个源码目录 -->
+                    <execution>
+                        <id>add-source</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/src/main/java</source>
+                                <!-- ... -->
+                            </sources>
+                        </configuration>
+                    </execution>
+
+                    <!-- 添加多个资源目录 -->
+                    <execution>
+                        <id>add-resource</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>add-resource</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/src/main/conf</directory>
+                                    <filtering>true</filtering>
+                                    <excludes>
+                                        <exclude>**/*.java</exclude>
+                                    </excludes>
+                                </resource>
+                            </resources>
                             <!-- ... -->
-                        </sources>
-                    </configuration>
-                </execution>
+                        </configuration>
+                    </execution>
 
-                <!-- 添加多个资源目录 -->
-                <execution>
-                    <id>add-resource</id>
-                    <phase>initialize</phase>
-                    <goals><goal>add-resource</goal></goals>
-                    <configuration>
-                        <resources>
-                            <resource>
-                                <directory>${project.basedir}/src/main/conf</directory>
-                                <filtering>true</filtering>
-                                <excludes><exclude>**/*.java</exclude></excludes>
-                            </resource>
-                        </resources>
-                        <!-- ... -->
-                    </configuration>
-                </execution>
+                    <!-- 添加多个测试源码目录 -->
+                    <execution>
+                        <id>add-test-source</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/src/test/java</source>
+                                <!-- ... -->
+                            </sources>
+                        </configuration>
+                    </execution>
 
-                <!-- 添加多个测试源码目录 -->
-                <execution>
-                    <id>add-test-source</id>
-                    <phase>initialize</phase>
-                    <goals><goal>add-test-source</goal></goals>
-                    <configuration>
-                        <sources>
-                            <source>${project.basedir}/src/test/java</source>
-                            <!-- ... -->
-                        </sources>
-                    </configuration>
-                </execution>
+                </executions>
+            </plugin>
 
-            </executions>
-        </plugin>
+            <!-- ... -->
 
-        <!-- ... -->
-      </plugins>
+        </plugins>
     </build>
 </project>
