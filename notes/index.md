@@ -5,8 +5,6 @@
 
 ## [Java](java/index.html)
 
-## [Tomcat](tomcat/index.html)
-
 ## [Spring](spring/index.html)
 
 ## [SpringWeb](spring_web/index.html)
