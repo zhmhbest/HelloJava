@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 设置值：空值 -->
+    <bean id="bean_null" class="ioc.Holder4String">
+        <property name="name"><null/></property>
+    </bean>
+
+    <!-- 设置值：特殊符号 -->
+    <bean id="bean_cdata" class="ioc.Holder4String">
+        <property name="name"><value><![CDATA["<<\>>"]]></value></property>
+    </bean>
+
+    <!-- 设置值：外部bean -->
+    <bean id="bean_outer_inject" class="ioc.Holder4String">
+        <constructor-arg index="0" value="外部Bean"/>
+    </bean>
+    <bean id="bean_outer" class="ioc.Holder4Object">
+        <property name="object" ref="bean_outer_inject"/>
+    </bean>
+
+    <!-- 设置值：内部bean -->
+    <bean id="bean_inner" class="ioc.Holder4Object">
+        <property name="object">
+            <bean class="ioc.Holder4String">
+                <constructor-arg index="0" value="内部Bean"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

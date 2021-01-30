@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/util
+                http://www.springframework.org/schema/util/spring-util.xsd
+        ">
+    <bean id="obj1" class="ioc.Holder4String">
+        <constructor-arg index="0" value="ABC"/>
+    </bean>
+    <bean id="obj2" class="ioc.Holder4String">
+        <constructor-arg index="0" value="XYZ"/>
+    </bean>
+    <bean id="collect_all" class="ioc.Holder4Collection">
+        <property name="m_obj">
+            <array>
+                <ref bean="obj1"/>
+                <ref bean="obj2"/>
+            </array>
+        </property>
+        <property name="m_arr">
+            <array>
+                <value>123</value>
+                <value>456</value>
+            </array>
+        </property>
+        <property name="m_list">
+            <list>
+                <value>ASD</value><value>QWE</value>
+            </list>
+        </property>
+        <property name="m_map">
+            <map>
+                <entry key="A" value="10"/>
+                <entry key="B" value="11"/>
+            </map>
+        </property>
+        <property name="m_set">
+            <set>
+                <value>A</value><value>B</value>
+                <value>B</value><value>C</value>
+            </set>
+        </property>
+    </bean>
+
+    <!-- List注入 -->
+    <util:list id="my_list">
+        <value>地球</value>
+        <value>地球</value>
+        <value>太阳系</value>
+        <value>银河系</value>
+    </util:list>
+    <bean id="collect_list" class="ioc.Holder4Collection">
+        <property name="m_list" ref="my_list"/>
+    </bean>
+
+    <!-- Map注入 -->
+    <util:map id="my_map">
+        <entry key="A" value="10"/>
+        <entry key="B" value="11"/>
+    </util:map>
+    <bean id="collect_map" class="ioc.Holder4Collection">
+        <property name="m_map" ref="my_map"/>
+    </bean>
+
+    <!-- Set注入 -->
+    <util:set id="my_set">
+        <value>地球</value>
+        <value>地球</value>
+        <value>太阳系</value>
+        <value>银河系</value>
+    </util:set>
+    <bean id="collect_set" class="ioc.Holder4Collection">
+        <property name="m_set" ref="my_set"/>
+    </bean>
+</beans>
