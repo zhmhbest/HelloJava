@@ -97,5 +97,5 @@ public class HelloController {
 ```batch
 mvn package
 start http://127.0.0.1:8080/hello
-@FOR /F "usebackq" %f in (`DIR /B "target\*.jar"`) DO java -jar "target/%f"
+@FOR /F "usebackq" %f in (`DIR /B "target\*.war"`) DO java -jar "target/%f"
 ```
