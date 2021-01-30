@@ -28,39 +28,39 @@
 ## IOC
 
 - 相关辅助对象
-  - [`TestBeanConfig.java`](demo/src/ioc/TestBeanConfig.java)
-  - [`Holder4String.java`](demo/src/ioc/Holder4String.java)
-  - [`Holder4Object.java`](demo/src/ioc/Holder4Object.java)
-  - [`Holder4Collection.java`](demo/src/ioc/Holder4Collection.java)
-  - [`Holder4HS.java`](demo/src/ioc/Holder4HS.java)
+  - [`TestBeanConfig.java`](src/main/java/ioc/TestBeanConfig.java)
+  - [`Holder4String.java`](src/main/java/ioc/Holder4String.java)
+  - [`Holder4Object.java`](src/main/java/ioc/Holder4Object.java)
+  - [`Holder4Collection.java`](src/main/java/ioc/Holder4Collection.java)
+  - [`Holder4HS.java`](src/main/java/ioc/Holder4HS.java)
   - annotation
-    - [`User.java`](demo/src/ioc/annotation/User.java)
-    - [`Name.java`](demo/src/ioc/annotation/Name.java)
-    - [`Gender.java`](demo/src/ioc/annotation/Gender.java)
-    - [`Age.java`](demo/src/ioc/annotation/Age.java)
+    - [`User.java`](src/main/java/ioc/annotation/User.java)
+    - [`Name.java`](src/main/java/ioc/annotation/Name.java)
+    - [`Gender.java`](src/main/java/ioc/annotation/Gender.java)
+    - [`Age.java`](src/main/java/ioc/annotation/Age.java)
 - 属性注入
-  - [`demoAttributeInjection.java`](demo/src/ioc/demoAttributeInjection.java)
-  - [`demoAttributeInjection.xml`](demo/src/ioc/demoAttributeInjection.xml)
+  - [`demoAttributeInjection.java`](src/main/java/ioc/demoAttributeInjection.java)
+  - [`demoAttributeInjection.xml`](src/main/java/ioc/demoAttributeInjection.xml)
 - 特殊符号、Object注入
-  - [`demoSpecialInjection.java`](demo/src/ioc/demoSpecialInjection.java)
-  - [`demoSpecialInjection.xml`](demo/src/ioc/demoSpecialInjection.xml)
+  - [`demoSpecialInjection.java`](src/main/java/ioc/demoSpecialInjection.java)
+  - [`demoSpecialInjection.xml`](src/main/java/ioc/demoSpecialInjection.xml)
 - Collection、Map注入
-  - [`demoCollectionInject.java`](demo/src/ioc/demoCollectionInject.java)
-  - [`demoCollectionInject.xml`](demo/src/ioc/demoCollectionInject.xml)
+  - [`demoCollectionInject.java`](src/main/java/ioc/demoCollectionInject.java)
+  - [`demoCollectionInject.xml`](src/main/java/ioc/demoCollectionInject.xml)
 - 自动注入
-  - [`demoAutoInject.java`](demo/src/ioc/demoAutoInject.java)
-  - [`demoAutoInject.xml`](demo/src/ioc/demoAutoInject.xml)
+  - [`demoAutoInject.java`](src/main/java/ioc/demoAutoInject.java)
+  - [`demoAutoInject.xml`](src/main/java/ioc/demoAutoInject.xml)
 - 工厂方法
-  - [`demoFactory.java`](demo/src/ioc/demoFactory.java)
-  - [`demoFactory.xml`](demo/src/ioc/demoFactory.xml)
+  - [`demoFactory.java`](src/main/java/ioc/demoFactory.java)
+  - [`demoFactory.xml`](src/main/java/ioc/demoFactory.xml)
 - 生命周期
-  - [`demoLifeCycle.java`](demo/src/ioc/demoLifeCycle.java)
-  - [`demoLifeCycle.xml`](demo/src/ioc/demoLifeCycle.xml)
+  - [`demoLifeCycle.java`](src/main/java/ioc/demoLifeCycle.java)
+  - [`demoLifeCycle.xml`](src/main/java/ioc/demoLifeCycle.xml)
 - 注解方法
-  - [`demoAnnotation.java`](demo/src/ioc/demoAnnotation.java)
-  - [`demoAnnotation.xml`](demo/src/ioc/demoAnnotation.xml)
+  - [`demoAnnotation.java`](src/main/java/ioc/demoAnnotation.java)
+  - [`demoAnnotation.xml`](src/main/java/ioc/demoAnnotation.xml)
 - 无配置注解方法
-  - [`demoAnnotationNoXml.java`](demo/src/ioc/demoAnnotationNoXml.java)
+  - [`demoAnnotationNoXml.java`](src/main/java/ioc/demoAnnotationNoXml.java)
 
 ## AOP
 
@@ -90,22 +90,21 @@
 
 ### AOP实现方式
 
-#### 需要的依赖
-
-@import "dependency.md"
-
 #### 测试用类
 
-- [`UserInterface.java`](demo/src/aop/UserInterface.java)
-- [`User.java`](demo/src/aop/User.java)
+- [`UserInterface.java`](src/main/java/aop/UserInterface.java)
+- [`User.java`](src/main/java/aop/User.java)
 
 #### 实现方式
 
-- 有接口使用[`JDK`](demo/src/aop/demoProxyJDK.java)动态代理；
-- 没有接口使用[`CGLIB`](demo/src/aop/demoProxyCGLIB.java)动态代理（在子类中增强父类方法）。
+- 有接口使用[`JDK`](src/main/java/aop/demoProxyJDK.java)动态代理；
+- 没有接口使用[`CGLIB`](src/main/java/aop/demoProxyCGLIB.java)动态代理（在子类中增强父类方法）。
 
 在Spring中使用AspectJ进行AOP操作。
 
-- [`UserProxy.java`](demo/src/aop/annotation/UserProxy.java)
-- [`demo.java`](demo/src/aop/demoProxySpring.java)
-- [`demo.xml`](demo/src/aop/demoProxySpring.xml)
+- [`UserProxy.java`](src/main/java/aop/annotation/UserProxy.java)
+- [`demo.java`](src/main/java/aop/demoProxySpring.java)
+- [`demo.xml`](src/main/java/aop/demoProxySpring.xml)
+
+## <a href="javascript:gotoRepository('src')">查看仓库</a>
+<script src="https://zhmhbest.github.io/HelloECMAScript/gotoRepository.js"></script>

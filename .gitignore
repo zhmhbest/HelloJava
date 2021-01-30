@@ -3,10 +3,17 @@ dump/
 
 .idea/
 out/
+*.iml
+
+.settings/
+classes/
+build/
+.classpath
+.project
+
 target/
 META-INF/
-classes/
+
 lib/
-*.iml
 *.log
 .gradle
