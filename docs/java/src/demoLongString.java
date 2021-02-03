@@ -60,7 +60,7 @@ class LongString {
                         arr.add(new TypedString(builder.toString(), 1));
                         builder.setLength(0);
                     }
-                    arr.add(new TypedString(group.substring(2, group.length() - 1), 2));
+                    arr.add(new TypedString(group.substring(2, group.length() - 1).trim(), 2));
                 }
                 lastPosition = matcher.end();
                 result = matcher.find();
