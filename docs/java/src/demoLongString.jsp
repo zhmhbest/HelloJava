@@ -6,6 +6,7 @@
     <input name="password" type="password" value="admin"/>
     <input type="submit" value="login"/>
     <pre>\\\t\\</pre>
+    <pre>\${abc}</pre>
 </form>
 </body>
-</html>\${abc}
+</html>
