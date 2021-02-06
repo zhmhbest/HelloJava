@@ -3,7 +3,7 @@ import java.util.HashSet;
 
 public class demoCollectionSet {
     public static void main(String[] args) {
-        HashSet<String> buffer = new HashSet<String>();
+        HashSet<String> buffer = new HashSet<>();
         buffer.add("Java");
         buffer.add("Python");
         buffer.add("Go");

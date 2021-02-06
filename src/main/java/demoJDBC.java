@@ -4,7 +4,7 @@ interface SQLCallBack {
     void onBatchAdd(PreparedStatement ps) throws SQLException;
 }
 
-public class JDBC {
+public class demoJDBC {
 
     public static ResultSet executeQuery(String sql) throws ClassNotFoundException, SQLException {
         Class.forName("org.mariadb.jdbc.Driver");

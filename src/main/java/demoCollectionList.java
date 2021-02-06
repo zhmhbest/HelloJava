@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class demoCollectionList {
     public static void main(String[] args) {
-        List<String> buffer = new ArrayList<String>();
+        List<String> buffer = new ArrayList<>();
         // List<String> buffer = new Vector<String>();
         // List<String> buffer = new LinkedList<String>();
 
