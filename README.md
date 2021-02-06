@@ -1,4 +1,4 @@
-# HelloJavaWeb
+# HelloJava
 
-- [View Notes](https://zhmhbest.github.io/HelloJavaWeb/index.html)
-- [View Repository](https://github.com/zhmhbest/HelloJavaWeb)
+- [View Notes](https://zhmhbest.github.io/HelloJava/index.html)
+- [View Repository](https://github.com/zhmhbest/HelloJava)
