@@ -77,6 +77,3 @@
 
 - 无论Key还是Value都不能为null；
 - 线程安全的。
-
-## <a href="javascript:gotoRepository('../src/main')">查看仓库</a>
-<script src="https://zhmhbest.github.io/HelloECMAScript/gotoRepository.js"></script>
