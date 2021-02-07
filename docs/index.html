@@ -299,6 +299,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#hashtable">Hashtable</a></li>
 </ul>
 </li>
+<li><a href="#java%E5%8F%82%E6%95%B0">JAVA&#x53C2;&#x6570;</a></li>
 </ul>
 </li>
 </ul>
@@ -376,7 +377,24 @@ pre[data-line] .line-highlight[data-end]:after {
 <li>&#x65E0;&#x8BBA;Key&#x8FD8;&#x662F;Value&#x90FD;&#x4E0D;&#x80FD;&#x4E3A;null&#xFF1B;</li>
 <li>&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x3002;</li>
 </ul>
+<h2 class="mume-header" id="java%E5%8F%82%E6%95%B0">JAVA&#x53C2;&#x6570;</h2>
 
+<pre data-role="codeBlock" data-info="txt" class="language-txt"><code>    -cp         &#x76EE;&#x5F55;/zip/jar&#x641C;&#x7D22;&#x8DEF;&#x5F84;
+    -classpath  &#x76EE;&#x5F55;/zip/jar&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#xFF08;&#x53EF;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#xFF09;
+
+    -Xloggc:&lt;file&gt;  &#x5C06;GC&#x72B6;&#x6001;&#x8BB0;&#x5F55;&#x5728;&#x6587;&#x4EF6;&#x4E2D;(&#x5E26;&#x65F6;&#x95F4;&#x6233;)
+    -Xms&lt;size&gt;      &#x521D;&#x59CB;Heap&#x5927;&#x5C0F;&#xFF08;&#x9ED8;&#x8BA4;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;1/64&#xFF09;
+    -Xmx&lt;size&gt;      &#x6700;&#x5927;Heap&#x5927;&#x5C0F;&#xFF08;&#x9ED8;&#x8BA4;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;1/4&#xFF09;
+    -Xss&lt;size&gt;      &#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;Heap&#x5927;&#x5C0F;&#xFF08;&#x9ED8;&#x8BA4;1m&#xFF09;
+
+    # &#x5806;&#x5927;&#x5C0F; = &#x5E74;&#x8F7B;&#x4EE3;&#x5927;&#x5C0F; + &#x5E74;&#x8001;&#x4EE3;&#x5927;&#x5C0F; + &#x6301;&#x4E45;&#x4EE3;&#x5927;&#x5C0F;
+    -Xmn&lt;size&gt;                  -XX:newSize=&lt;size&gt; + -XX:MaxnewSize==&lt;size&gt;
+    -XX:NewSize=&lt;size&gt;          &#x5E74;&#x8F7B;&#x4EE3;&#x521D;&#x59CB;&#x5185;&#x5B58;&#xFF08;&#x5E94;&#x5C0F;&#x4E8E;ms&#xFF09;
+    -XX:MaxnewSize=&lt;size&gt;       &#x5E74;&#x8F7B;&#x4EE3;&#x6700;&#x5927;&#x5185;&#x5B58;&#xFF08;&#x5E94;&#x5C0F;&#x4E8E;mx&#xFF09;
+    -XX:PermSize=&lt;size&gt;         &#x6301;&#x4E45;&#x4EE3;&#x521D;&#x59CB;&#x5927;&#x5C0F;
+    -XX:MaxPermSize=&lt;size&gt;      &#x6301;&#x4E45;&#x4EE3;&#x6700;&#x5927;&#x5927;&#x5C0F;
+    -XX:NewRatio=&lt;size&gt;         &#x5E74;&#x8F7B;&#x4EE3;:&#x5E74;&#x8001;&#x4EE3;&#x7684;&#x6BD4;&#x503C;=1:&lt;size&gt;
+</code></pre>
       </div>
       
       
