@@ -97,5 +97,3 @@
     -XX:MaxPermSize=<size>      持久代最大大小
     -XX:NewRatio=<size>         年轻代:年老代的比值=1:<size>
 ```
-
-## [JNI](./jni/index.html)
