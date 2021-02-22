@@ -1,5 +1,6 @@
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,15 +8,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class LongTemplateString {
-    public static final String CURRENT_DIRECTORY_PATH = LongTemplateString.class.getResource("/").getPath();
-    public static String readText(String fileName) throws IOException {
-        FileInputStream fis = new FileInputStream(fileName);
-        byte[] buff = new byte[fis.available()];
-        int size = fis.read(buff);
-        return new String(buff, 0, size, StandardCharsets.UTF_8);
-    }
-    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+class TemplateString {
+    // TypedString
     protected static final int TYPED_STR = 1;
     protected static final int TYPED_VAR = 2;
     protected static class TypedString {
@@ -25,12 +20,10 @@ class LongTemplateString {
             this.value = value;
             this.type = type;
         }
-        @Override
-        public String toString() {
-            return "TypedString{" + value + '}';
-        }
     }
-    protected static ArrayList<TypedString> splitText(String text) {
+    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    // Split
+    protected static ArrayList<TypedString> splitString(String text) {
         ArrayList<TypedString> arr = new ArrayList<>();
         final Pattern pattern = Pattern.compile("\\\\.|\\$\\{.+?\\}");
         int lastPosition = 0;
@@ -84,38 +77,14 @@ class LongTemplateString {
         return arr;
     }
     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-    protected static final Map<String, ArrayList<TypedString>> formatterHolder = new HashMap<>();
-    protected static ArrayList<TypedString> getFormatter(String fileName) {
-        if (formatterHolder.containsKey(fileName)) {
-            return formatterHolder.get(fileName);
-        } else {
-            try {
-                String text = readText(fileName);
-                ArrayList<TypedString> formatter = splitText(text);
-                formatterHolder.put(fileName, formatter);
-                return formatter;
-            } catch (IOException e) {
-                return null;
-            }
-        }
-    }
-    public static LongTemplateString make(String fileName) {
-        ArrayList<TypedString> formatter = getFormatter(fileName);
-        if (null == formatter) return null;
-        return new LongTemplateString(formatter);
-    }
-    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-    protected ArrayList<TypedString> formatter;
+    // TemplateString
+    protected ArrayList<TypedString> templateString;
     protected final Map<String, String> variableMap = new HashMap<>();
-    public LongTemplateString(ArrayList<TypedString> formatter) {
-        this.formatter = formatter;
-    }
     public void setVariable(String name, String value) {
-        if (null == value) {
+        if (null == value)
             variableMap.remove(name);
-        } else {
+        else
             variableMap.put(name, value);
-        }
     }
     public void clearVariables() {
         variableMap.clear();
@@ -123,7 +92,7 @@ class LongTemplateString {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        for (TypedString item : this.formatter) {
+        for (TypedString item : this.templateString) {
             if (TYPED_STR == item.type) {
                 builder.append(item.value);
             } else if (TYPED_VAR == item.type) {
@@ -136,11 +105,46 @@ class LongTemplateString {
         }
         return builder.toString();
     }
+    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    public static String readText(String fileName) throws IOException {
+        return readText(new FileInputStream(fileName));
+    }
+    public static String readText(InputStream is) throws IOException {
+        byte[] buff = new byte[is.available()];
+        int size = is.read(buff);
+        return new String(buff, 0, size, StandardCharsets.UTF_8);
+    }
+    public static TemplateString make(String s) {
+        if (null == s) return null;
+        ArrayList<TypedString> templateString = splitString(s);
+        if (templateString.isEmpty()) return null;
+        TemplateString t = new TemplateString();
+        t.templateString = templateString;
+        return t;
+    }
+    public static TemplateString make(InputStream is) {
+        String s = null;
+        try {
+            s = readText(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return make(s);
+    }
 }
+
 
 public class demoLongString {
     public static void main(String[] args) throws IOException {
-        LongTemplateString ls = LongTemplateString.make(LongTemplateString.CURRENT_DIRECTORY_PATH + "demoLongString.jsp");
+        // System.out.println(
+        //         TemplateString.readText(demoLongString.class.getResourceAsStream("demoLongString.jsp")) + "|"
+        // );
+        // System.out.println(
+        //         TemplateString.readText(
+        //                 TemplateString.class.getResource("/").getPath() + "demoLongString.jsp"
+        //         ) + "|"
+        // );
+        TemplateString ls = TemplateString.make(TemplateString.class.getResourceAsStream("demoLongString.jsp"));
         assert ls != null;
         ls.setVariable("base", "我是变量");
         System.out.println(ls);
