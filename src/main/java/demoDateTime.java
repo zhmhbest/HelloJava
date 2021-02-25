@@ -36,6 +36,15 @@ public class demoDateTime {
         System.out.println(formatCalendar(c));
 
         /*
+         * TimeMillis: 日期计算
+         */
+        final int TIME_MILLIS_SECOND = 1000;
+        final int TIME_MILLIS_MINUTE = 60 * TIME_MILLIS_SECOND;
+        final int TIME_MILLIS_HOUR = 60 * TIME_MILLIS_MINUTE;
+        final int TIME_MILLIS_DAY = 24 * TIME_MILLIS_HOUR;
+        System.out.println(new Date(System.currentTimeMillis() - 2 * TIME_MILLIS_DAY));
+
+        /*
          * Date: 日期 -> 字符串
          */
         Date date = new Date();
