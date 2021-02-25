@@ -42,7 +42,23 @@ public class demoDateTime {
         final int TIME_MILLIS_MINUTE = 60 * TIME_MILLIS_SECOND;
         final int TIME_MILLIS_HOUR = 60 * TIME_MILLIS_MINUTE;
         final int TIME_MILLIS_DAY = 24 * TIME_MILLIS_HOUR;
-        System.out.println(new Date(System.currentTimeMillis() - 2 * TIME_MILLIS_DAY));
+        final long CURRENT_TIME = System.currentTimeMillis();
+        // day
+        final SimpleDateFormat DayFormat = new SimpleDateFormat("yyyyMMdd");
+        String dayNow = DayFormat.format(new Date(CURRENT_TIME));
+        String dayBefore1 = DayFormat.format(new Date(CURRENT_TIME - TIME_MILLIS_DAY));
+        String dayBefore2 = DayFormat.format(new Date(CURRENT_TIME - TIME_MILLIS_DAY * 2));
+        String dayBefore3 = DayFormat.format(new Date(CURRENT_TIME - TIME_MILLIS_DAY * 3));
+        //minute
+        final SimpleDateFormat MinuteFormat = new SimpleDateFormat("yyyyMMddHHmm");
+        String minuteBefore4 = MinuteFormat.format(new Date(CURRENT_TIME - TIME_MILLIS_MINUTE * 4));
+        String minuteBefore8 = MinuteFormat.format(new Date(CURRENT_TIME - TIME_MILLIS_MINUTE * 8));
+        System.out.println(dayNow);
+        System.out.println(dayBefore1);
+        System.out.println(dayBefore2);
+        System.out.println(dayBefore3);
+        System.out.println(minuteBefore4);
+        System.out.println(minuteBefore8);
 
         /*
          * Date: 日期 -> 字符串
