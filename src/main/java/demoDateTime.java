@@ -27,13 +27,13 @@ public class demoDateTime {
          */
         Calendar c = Calendar.getInstance();
         System.out.println(formatCalendar(c));
+        System.out.println(c.getTimeInMillis());
 
         /*
          * Calendar: 日期计算
          */
         c.add(Calendar.YEAR, 2);
         System.out.println(formatCalendar(c));
-        System.exit(0);
 
         /*
          * Date: 日期 -> 字符串
