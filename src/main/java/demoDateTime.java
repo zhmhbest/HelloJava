@@ -66,7 +66,7 @@ public class demoDateTime {
         Date date = new Date();
         DateFormat df = DateFormat.getDateTimeInstance();
         System.out.println(df.format(date));
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
         System.out.println(ft.format(date));
 
         /*
