@@ -1,14 +1,15 @@
+package org.example;
 /*
- * Hello
+ * org.example.collection.Hello
  */
 //import java.lang.*;
 
-public class demoHello {
+public class Hello {
     public static String getType(Object ref) {
         return ref.getClass().getName();
     }
     public static void main(String[] args) {
-        System.out.println("Hello");
+        System.out.println("org.example.collection.Hello");
 
         /*
          * Byte
