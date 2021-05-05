@@ -14,6 +14,7 @@
     </properties>
 
     <dependencies>
+
         <!-- 测试框架 -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -21,6 +22,7 @@
             <version>6.9.10</version>
             <scope>test</scope>
         </dependency>
+
         <!-- 读取JSON -->
         <dependency>
             <groupId>net.sf.json-lib</groupId>
@@ -28,18 +30,33 @@
             <version>2.4</version>
             <classifier>jdk15</classifier>
         </dependency>
+
         <!-- 读取YAML -->
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
             <version>1.21</version>
         </dependency>
+
         <!-- JDBC -->
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
             <version>2.6.2</version>
         </dependency>
+
+        <!-- HTTP Client -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.6</version>
+        </dependency>
+
     </dependencies>
 
 </project>
