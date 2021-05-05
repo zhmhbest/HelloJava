@@ -1,4 +1,4 @@
-package org.example.collection;
+package org.example.base.collection;
 
 import java.util.Iterator;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.ArrayList;     // --> List
 // 动态数组、线程安全
 import java.util.Vector;        // --> List
-import java.util.Stack;         // ==> Vector --> List
 // 双向链表
 import java.util.LinkedList;    // --> List
 

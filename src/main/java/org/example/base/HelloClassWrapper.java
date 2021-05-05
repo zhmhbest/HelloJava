@@ -1,4 +1,7 @@
-public class demoWrapper {
+package org.example.base;
+
+
+public class HelloClassWrapper {
     static void test(Integer num) {
         System.out.printf("Integer %d\n", num);
     }
@@ -12,7 +15,7 @@ public class demoWrapper {
         int i = 123;
         test(i);
 
-        // 自动包装
+        // 原始包装
         Integer j = i;
         test(j);
     }

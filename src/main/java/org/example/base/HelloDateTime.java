@@ -1,10 +1,18 @@
+package org.example.base;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Calendar;
 
-public class demoDateTime {
+
+public class HelloDateTime {
+    /**
+     * 格式化Calendar对象
+     * @param calendar 时间
+     * @return String
+     */
     public static String formatCalendar(Calendar calendar) {
         return String.format(
                 "%d-%d-%d %d:%d:%d ms=%d dow=%d doy=%d wom=%d woy=%d",
@@ -21,47 +29,55 @@ public class demoDateTime {
                 calendar.get(Calendar.WEEK_OF_YEAR)
         );
     }
+
     public static void main(String[] args) {
         /*
-         * Calendar: 当前时间
+         * Calendar -> Long(TimeMillis)
          */
-        Calendar c = Calendar.getInstance();
-        System.out.println(formatCalendar(c));
-        System.out.println(c.getTimeInMillis());
+        Calendar c1 = Calendar.getInstance();
+        System.out.println(c1.getTimeInMillis());
+
+        /*
+         * Calendar -> String
+         */
+        Calendar c2 = Calendar.getInstance();
+        System.out.println(formatCalendar(c2));
 
         /*
          * Calendar: 日期计算
          */
-        c.add(Calendar.YEAR, 2);
-        System.out.println(formatCalendar(c));
+        Calendar c3 = Calendar.getInstance();
+        c3.add(Calendar.YEAR, 2);
+        System.out.println(formatCalendar(c3));
 
         /*
-         * TimeMillis: 日期计算
+         * Long(TimeMillis): 日期计算
          */
         final int TIME_MILLIS_SECOND = 1000;
         final int TIME_MILLIS_MINUTE = 60 * TIME_MILLIS_SECOND;
         final int TIME_MILLIS_HOUR = 60 * TIME_MILLIS_MINUTE;
         final int TIME_MILLIS_DAY = 24 * TIME_MILLIS_HOUR;
-        final long CURRENT_TIME = System.currentTimeMillis();
+        final SimpleDateFormat DayIDFormat = new SimpleDateFormat("yyyyMMdd");
+        final SimpleDateFormat MinuteIDFormat = new SimpleDateFormat("yyyyMMddHHmm");
+        //
+        long currentTimeMillis = System.currentTimeMillis();
         // day
-        final SimpleDateFormat DayFormat = new SimpleDateFormat("yyyyMMdd");
-        String dayNow = DayFormat.format(new Date(CURRENT_TIME));
-        String dayBefore1 = DayFormat.format(new Date(CURRENT_TIME - TIME_MILLIS_DAY));
-        String dayBefore2 = DayFormat.format(new Date(CURRENT_TIME - TIME_MILLIS_DAY * 2));
-        String dayBefore3 = DayFormat.format(new Date(CURRENT_TIME - TIME_MILLIS_DAY * 3));
-        //minute
-        final SimpleDateFormat MinuteFormat = new SimpleDateFormat("yyyyMMddHHmm");
-        String minuteBefore4 = MinuteFormat.format(new Date(CURRENT_TIME - TIME_MILLIS_MINUTE * 4));
-        String minuteBefore8 = MinuteFormat.format(new Date(CURRENT_TIME - TIME_MILLIS_MINUTE * 8));
+        String dayNow = DayIDFormat.format(new Date(currentTimeMillis));
+        String dayBefore1 = DayIDFormat.format(new Date(currentTimeMillis - TIME_MILLIS_DAY));
+        String dayBefore2 = DayIDFormat.format(new Date(currentTimeMillis - TIME_MILLIS_DAY * 2));
+        String dayBefore3 = DayIDFormat.format(new Date(currentTimeMillis - TIME_MILLIS_DAY * 3));
         System.out.println(dayNow);
         System.out.println(dayBefore1);
         System.out.println(dayBefore2);
         System.out.println(dayBefore3);
+        //minute
+        String minuteBefore4 = MinuteIDFormat.format(new Date(currentTimeMillis - TIME_MILLIS_MINUTE * 4));
+        String minuteBefore8 = MinuteIDFormat.format(new Date(currentTimeMillis - TIME_MILLIS_MINUTE * 8));
         System.out.println(minuteBefore4);
         System.out.println(minuteBefore8);
 
         /*
-         * Date: 日期 -> 字符串
+         * Date -> String
          */
         Date date = new Date();
         DateFormat df = DateFormat.getDateTimeInstance();
@@ -70,14 +86,15 @@ public class demoDateTime {
         System.out.println(ft.format(date));
 
         /*
-         * Date: 字符串 -> 日期
+         * String -> Date
          */
-        Date date_parse = null;
+        SimpleDateFormat sdt = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
+        Date parseResult = null;
         try {
-            date_parse = ft.parse("1234-12-24 11:22:33");
+            parseResult = sdt.parse("1234-12-24 11:22:33");
         } catch (ParseException e) {
             System.err.println(e.toString());
         }
-        System.out.println(date_parse);
+        System.out.println(parseResult);
     }
 }

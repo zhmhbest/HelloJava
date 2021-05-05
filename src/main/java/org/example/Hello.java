@@ -1,6 +1,6 @@
 package org.example;
 /*
- * org.example.collection.Hello
+ * org.example.base.collection.Hello
  */
 //import java.lang.*;
 
@@ -9,7 +9,7 @@ public class Hello {
         return ref.getClass().getName();
     }
     public static void main(String[] args) {
-        System.out.println("org.example.collection.Hello");
+        System.out.println("org.example.base.collection.Hello");
 
         /*
          * Byte

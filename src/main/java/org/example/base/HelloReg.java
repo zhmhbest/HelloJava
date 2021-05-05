@@ -1,13 +1,17 @@
+package org.example.base;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class demoReg {
+
+public class HelloReg {
     static final Pattern pattern_mail = Pattern.compile("^[0-9a-zA-Z]+@(?:[0-9a-zA-Z]+\\.)+[0-9a-zA-Z]+$");
     static final Pattern pattern_phone = Pattern.compile("^1\\d{10}$");
 
     public interface ReplaceCallback {
         String replace(String match);
     }
+
     public static String findReplace(String str, String pattern, ReplaceCallback callback) {
         Matcher matcher = Pattern.compile(pattern).matcher(str);
         matcher.reset();
@@ -28,6 +32,7 @@ public class demoReg {
         }
         return str;
     }
+
     public static String preventHtml(String toFilter) {
         return findReplace(toFilter, "[<>& ]", match -> {
             switch (match) {
@@ -39,6 +44,7 @@ public class demoReg {
             }
         });
     }
+
     public static void main(String[] args) {
         System.out.println(
                 preventHtml("<html>[ & ]</html>")

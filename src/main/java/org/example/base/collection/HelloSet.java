@@ -1,4 +1,4 @@
-package org.example.collection;
+package org.example.base.collection;
 
 import java.util.Set;
 // 二差树实现、元素有序

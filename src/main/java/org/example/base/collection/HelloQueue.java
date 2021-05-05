@@ -1,4 +1,4 @@
-package org.example.collection;
+package org.example.base.collection;
 
 import java.util.Queue;
 // 循环数组

@@ -1,4 +1,4 @@
-package org.example.collection;
+package org.example.base.collection;
 
 import java.util.Iterator;
 import java.util.Map;

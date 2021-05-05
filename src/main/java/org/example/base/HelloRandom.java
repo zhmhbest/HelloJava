@@ -1,9 +1,9 @@
-/*
+package org.example.base;/*
  * Random: 随机数
  */
 import java.util.Random;
 
-public class demoRandom {
+public class HelloRandom {
     public static void main(String[] args) {
          Random random = new Random();
          // Random random = new Random(0);
@@ -17,15 +17,15 @@ public class demoRandom {
 
         // 整数
         int upperBound = 3;
-        System.out.print(String.format("生成[0, %d)内的整数: ", upperBound));
+        System.out.printf("生成[0, %d)内的整数: ", upperBound);
         for(int i=0; i<6; i++) {
             System.out.printf("%d, ", random.nextInt(upperBound));
         }
         System.out.print('\n');
 
         // 整数
-        System.out.printf("在32位整数空间范围内均匀分布: %d", random.nextInt());
-        System.out.printf("在64位整数空间范围内均匀分布: %d", random.nextLong());
+        System.out.printf("在32位整数空间范围内均匀分布: %d\n", random.nextInt());
+        System.out.printf("在64位整数空间范围内均匀分布: %d\n", random.nextLong());
 
         // 浮点数
         System.out.print("生成[0.0, 1.0)内均匀分布的随机值: ");

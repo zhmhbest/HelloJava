@@ -1,0 +1,9 @@
+depart:
+  -
+    id: 1
+    name: 张三
+    salary: 200W
+  -
+    id: 2
+    name: 李四
+    salary: 500W
