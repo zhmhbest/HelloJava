@@ -2,7 +2,7 @@ package org.example;
 
 import org.testng.annotations.*;
 
-public class LifeCycle {
+public class HelloTestLifeCycle {
     @Test
     public void test1() {
         System.out.println("Test1");

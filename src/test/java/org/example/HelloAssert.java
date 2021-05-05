@@ -3,7 +3,7 @@ package org.example;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 
-public class LearnAssert {
+public class HelloAssert {
     @Test
     public static void test_equal_true() {
         int responseStatus = 200;
