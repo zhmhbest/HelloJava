@@ -2,8 +2,8 @@ package org.example.db;
 
 import java.sql.*;
 
-interface SqlCallBack {
-    void onBatchAdd(PreparedStatement ps) throws SQLException;
+interface SqlBatchAddCallBack {
+    void run(PreparedStatement ps) throws SQLException;
 }
 
 public class HelloJDBC {
@@ -35,7 +35,7 @@ public class HelloJDBC {
     }
 
     public static Connection getConnection(String dbname, String user, String password) {
-        return getConnection("127.0.0.1", 3306, dbname, user, password);
+        return getConnection("localhost", 3306, dbname, user, password);
     }
 
     public static ResultSet executeQuery(Connection conn, String sql) {
@@ -50,12 +50,12 @@ public class HelloJDBC {
     }
 
 
-    public static int executeUpdate(Connection conn, String sql, SqlCallBack callback) {
+    public static int executeUpdate(Connection conn, String sql, SqlBatchAddCallBack callback) {
         PreparedStatement ps = null;
         int size = 0;
         try {
             ps = conn.prepareStatement(sql);
-            callback.onBatchAdd(ps);
+            callback.run(ps);
             size = ps.executeUpdate();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -76,6 +76,14 @@ public class HelloJDBC {
         Connection conn1 = getConnection("mysql", "root", "");
         if (null != conn1) {
             ResultSet rs = executeQuery(conn1, "SELECT Host,User,Password FROM user WHERE User='root';");
+            ResultSetMetaData meta = rs.getMetaData();
+            for (int columnIndex = 1; columnIndex <= meta.getColumnCount(); columnIndex++) {
+                System.out.printf(
+                        "Name:%s, TypeName:%s\n",
+                        meta.getColumnName(columnIndex),
+                        meta.getColumnTypeName(columnIndex)
+                );
+            }
             while (rs.next()) {
                 System.out.printf("%s,%s,%s\n",
                         rs.getString(1),
@@ -98,6 +106,7 @@ public class HelloJDBC {
                 ps.setString(3, "123");
                 ps.addBatch();
                 ps.executeBatch();
+                ps.clearBatch();
                 // 2
                 ps.setInt(1, 22);
                 ps.setString(2, "asd");
