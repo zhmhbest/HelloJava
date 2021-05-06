@@ -4,6 +4,11 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.PropertyConfigurator;
+import org.example.IO;
+
+import java.io.FileInputStream;
+
+import static org.example.config.HelloProperties.getProperties;
 
 
 public class HelloLogger {
@@ -53,6 +58,9 @@ public class HelloLogger {
         demoLevel(logger);
 
         // 加载resources下的log4j.properties
-        // PropertyConfigurator.configure("log4j.properties");
+        PropertyConfigurator.configure(
+                getProperties(IO.getResourceStream("/log4j.properties"))
+        );
+        demoLevel(logger);
     }
 }
