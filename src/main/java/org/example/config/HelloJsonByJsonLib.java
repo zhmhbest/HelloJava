@@ -4,7 +4,8 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.example.IO;
 
-public class HelloJson {
+
+public class HelloJsonByJsonLib {
     public static void main(String[] args) {
         final String text = IO.readResourceText("/demo.json");
         assert null != text;
