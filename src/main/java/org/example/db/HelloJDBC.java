@@ -2,7 +2,7 @@ package org.example.db;
 
 import java.sql.*;
 
-interface SQLCallBack {
+interface SqlCallBack {
     void onBatchAdd(PreparedStatement ps) throws SQLException;
 }
 
@@ -12,8 +12,9 @@ public class HelloJDBC {
             // 注册JDBC
             Class.forName("org.mariadb.jdbc.Driver");
             // Class.forName("com.mysql.jdbc.Driver");
+            // Class.forName("com.github.housepower.jdbc.ClickHouseDriver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 
@@ -28,7 +29,7 @@ public class HelloJDBC {
                     user, password
             );
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
         return conn;
     }
@@ -43,13 +44,13 @@ public class HelloJDBC {
             Statement stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
         return rs;
     }
 
 
-    public static int executeUpdate(Connection conn, String sql, SQLCallBack callback) {
+    public static int executeUpdate(Connection conn, String sql, SqlCallBack callback) {
         PreparedStatement ps = null;
         int size = 0;
         try {
@@ -57,51 +58,55 @@ public class HelloJDBC {
             callback.onBatchAdd(ps);
             size = ps.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         } finally {
             if (null != ps) {
                 try {
                     ps.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.err.println(e.getMessage());
                 }
             }
         }
         return size;
     }
 
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+    public static void main(String[] args) throws SQLException {
         // 查询
         Connection conn1 = getConnection("mysql", "root", "");
-        ResultSet rs = executeQuery(conn1, "SELECT Host,User,Password FROM user WHERE User='root';");
-        while (rs.next()) {
-            System.out.printf("%s,%s,%s\n",
-                    rs.getString(1),
-                    rs.getString(2),
-                    rs.getString(3)
-            );
+        if (null != conn1) {
+            ResultSet rs = executeQuery(conn1, "SELECT Host,User,Password FROM user WHERE User='root';");
+            while (rs.next()) {
+                System.out.printf("%s,%s,%s\n",
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3)
+                );
+            }
+            rs.close();
+            conn1.close();
         }
-        rs.close();
-        conn1.close();
 
         // 修改
         Connection conn2 = getConnection("nutzbook", "root", "");
-        int size = executeUpdate(conn2, "INSERT INTO tbl_user VALUES(?,?,?);", ps -> {
-            ps.clearBatch();
-            // 1
-            ps.setInt(1, 21);
-            ps.setString(2, "qwe");
-            ps.setString(3, "123");
-            ps.addBatch();
-            ps.executeBatch();
-            // 2
-            ps.setInt(1, 22);
-            ps.setString(2, "asd");
-            ps.setString(3, "456");
-            ps.addBatch();
-            // ps.executeBatch();
-        });
-        System.out.println(size);
-        conn2.close();
+        if (null != conn2) {
+            int size = executeUpdate(conn2, "INSERT INTO tbl_user VALUES(?,?,?);", ps -> {
+                ps.clearBatch();
+                // 1
+                ps.setInt(1, 21);
+                ps.setString(2, "qwe");
+                ps.setString(3, "123");
+                ps.addBatch();
+                ps.executeBatch();
+                // 2
+                ps.setInt(1, 22);
+                ps.setString(2, "asd");
+                ps.setString(3, "456");
+                ps.addBatch();
+                // ps.executeBatch();
+            });
+            System.out.println(size);
+            conn2.close();
+        }
     }
 }
