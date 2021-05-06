@@ -103,6 +103,15 @@
             <version>1.2.16</version>
         </dependency>
 
+        <!-- ================================ -->
+
+        <!--SSH2  -->
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.55</version>
+        </dependency>
+
     </dependencies>
 
 </project>
