@@ -58,9 +58,11 @@ public class HelloJDBC {
             System.out.println("删表");
             db.execute("DROP DATABASE IF EXISTS `test_db`;");
             System.out.println("删库");
+
+            // 断开连接
+            db.disconnect();
         } else {
             System.out.println("连接失败");
         }
-        db.disconnect();
     }
 }
