@@ -36,11 +36,11 @@ public class DBUtils {
         return conn;
     }
 
-    interface SqlQueryCallBack {
+    public interface SqlQueryCallBack {
         void run(ResultSet rs) throws SQLException;
     }
 
-    interface SqlUpdateCallBack {
+    public interface SqlUpdateCallBack {
         void run(PreparedStatement ps) throws SQLException;
     }
 
