@@ -5,7 +5,7 @@ import java.sql.ResultSetMetaData;
 
 public class HelloJDBC {
     public static void main(String[] args) {
-        DBUtils db = new DBUtils("localhost", 3308, "root", "venustech.tsoc.db.ROOT");
+        DBUtils db = new DBUtils("localhost", 3306, "root", "root");
         if (db.connected()) {
             System.out.println("已连接");
             // 创建库表
