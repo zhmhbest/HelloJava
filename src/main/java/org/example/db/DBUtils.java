@@ -1,6 +1,11 @@
 package org.example.db;
 
+import lombok.Data;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 public class DBUtils {
@@ -13,6 +18,10 @@ public class DBUtils {
         } catch (ClassNotFoundException e) {
             System.err.println(e.getMessage());
         }
+    }
+
+    public static String placeHolders(int l) {
+        return String.join(",", Collections.nCopies(l, "?"));
     }
 
     public static Connection getConnection(
@@ -143,5 +152,27 @@ public class DBUtils {
                 }
             }
         }
+    }
+
+    @Data
+    public static class MetaInfo {
+        private String tableName;
+        private int columnCount;
+        private List<String> columnTypeNames;
+    }
+
+    public MetaInfo getTableMetaData(String tableName) {
+        MetaInfo info = new MetaInfo();
+        this.query("SELECT * FROM " + tableName + " LIMIT 0", rs -> {
+            ResultSetMetaData meta = rs.getMetaData();
+            info.setTableName(tableName);
+            info.setColumnCount(meta.getColumnCount());
+            List<String> columnTypeNames = new ArrayList<>(32);
+            for (int i = 1; i <= meta.getColumnCount(); i++) {
+                columnTypeNames.add(meta.getColumnTypeName(i));
+            }
+            info.setColumnTypeNames(columnTypeNames);
+        });
+        return info;
     }
 }

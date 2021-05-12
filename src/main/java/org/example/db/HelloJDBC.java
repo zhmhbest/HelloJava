@@ -5,7 +5,7 @@ import java.sql.ResultSetMetaData;
 
 public class HelloJDBC {
     public static void main(String[] args) {
-        DBUtils db = new DBUtils("localhost", 3306, "root", "root");
+        DBUtils db = new DBUtils("localhost", 3308, "root", "venustech.tsoc.db.ROOT");
         if (db.connected()) {
             System.out.println("已连接");
             // 创建库表
@@ -14,8 +14,12 @@ public class HelloJDBC {
             db.execute("CREATE TABLE IF NOT EXISTS `test_db`.`test_tbl` ( id BIGINT, name VARCHAR(32), PRIMARY KEY(id) );");
             System.out.println("建表");
 
+            // 查询表结构
+            DBUtils.MetaInfo metaInfo = db.getTableMetaData("`test_db`.`test_tbl`");
+            final String placeHolders = DBUtils.placeHolders(metaInfo.getColumnCount());
+
             // 插入
-            db.update("INSERT INTO `test_db`.`test_tbl` VALUES(?,?);", ps -> {
+            db.update("INSERT INTO `test_db`.`test_tbl` VALUES(" + placeHolders + ");", ps -> {
                 ps.clearBatch();
                 // 1
                 ps.setInt(1, 1);
