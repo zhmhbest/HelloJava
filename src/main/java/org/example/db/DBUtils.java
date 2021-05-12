@@ -16,13 +16,11 @@ public class DBUtils {
     }
 
     public static Connection getConnection(
-            String host, int port, String dbname,
-            String user, String password
+            String jdbcUrl, String jdbcUser, String jdbcPassword
     ) {
         Connection conn = null;
-        final String url = String.format("jdbc:mysql://%s:%d/%s", host, port, dbname);
         try {
-            conn = DriverManager.getConnection(url, user, password);
+            conn = DriverManager.getConnection(jdbcUrl, jdbcUser, jdbcPassword);
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
@@ -43,8 +41,16 @@ public class DBUtils {
         this.conn = conn;
     }
 
+    public DBUtils(String url, String user, String password) {
+        this.conn = getConnection(url, user, password);
+    }
+
+    public DBUtils(String host, int port, String user, String password) {
+        this.conn = getConnection(String.format("jdbc:mysql://%s:%d", host, port), user, password);
+    }
+
     public DBUtils(String host, int port, String dbname, String user, String password) {
-        this.conn = getConnection(host, port, dbname, user, password);
+        this.conn = getConnection(String.format("jdbc:mysql://%s:%d/%s", host, port, dbname), user, password);
     }
 
     public void disconnect() {

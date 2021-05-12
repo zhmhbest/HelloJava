@@ -1,13 +1,15 @@
 package org.example.db;
 
 
+import java.sql.ResultSetMetaData;
+
 public class HelloJDBC {
     public static void main(String[] args) {
-        DBUtils db = new DBUtils("localhost", 3306, "", "root", "root");
+        DBUtils db = new DBUtils("localhost", 3308, "root", "venustech.tsoc.db.ROOT");
         if (db.connected()) {
             System.out.println("已连接");
             // 创建库表
-            db.execute("CREATE DATABASE IF NOT EXISTS `test_db`");
+            db.execute("CREATE DATABASE IF NOT EXISTS `test_db`;");
             System.out.println("建库");
             db.execute("CREATE TABLE IF NOT EXISTS `test_db`.`test_tbl` ( id BIGINT, name VARCHAR(32), PRIMARY KEY(id) );");
             System.out.println("建表");
@@ -34,6 +36,11 @@ public class HelloJDBC {
 
             // 查询
             db.query("SELECT * FROM `test_db`.`test_tbl`;", rs -> {
+                ResultSetMetaData meta = rs.getMetaData();
+                for (int i = 1; i <= meta.getColumnCount(); i++) {
+                    System.out.println(meta.getColumnTypeName(i));
+                }
+                //
                 while (rs.next()) {
                     System.out.printf("%d,%s\n",
                             rs.getInt(1),
