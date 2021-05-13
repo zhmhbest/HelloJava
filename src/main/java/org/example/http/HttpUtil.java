@@ -3,20 +3,27 @@ package org.example.http;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
 import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class HttpUtil {
@@ -55,7 +62,7 @@ public class HttpUtil {
         }
     }
 
-    public static void doRequest(CloseableHttpClient client, HttpRequestBase request, ResponseCallback callback) {
+    public static void request(CloseableHttpClient client, HttpRequestBase request, ResponseCallback callback) {
         CloseableHttpResponse response = null;
         try {
             response = client.execute(request);
@@ -76,7 +83,7 @@ public class HttpUtil {
         }
     }
 
-    public static void doGet(
+    public static void get(
             String url,
             Map<String, String> requestHeaders,
             Map<String, Object> requestLineParameters,
@@ -87,10 +94,10 @@ public class HttpUtil {
         if (null == uri) { return; }
         HttpGet request = new HttpGet(uri);
         setHeaders(request, requestHeaders);
-        doRequest(client, request, callback);
+        request(client, request, callback);
     }
 
-    public static void doPost(
+    public static void post(
             String url,
             Map<String, String> requestHeaders,
             Map<String, Object> requestLineParameters,
@@ -103,6 +110,64 @@ public class HttpUtil {
         HttpPost request = new HttpPost(uri);
         request.setEntity(entity);
         setHeaders(request, requestHeaders);
-        doRequest(client, request, callback);
+        request(client, request, callback);
+    }
+
+    public static void postString(
+            String url,
+            Map<String, String> requestHeaders,
+            Map<String, Object> requestLineParameters,
+            String content,
+            ResponseCallback callback
+    ) {
+        post(url, requestHeaders, requestLineParameters, new StringEntity(content, "utf-8"), callback);
+    }
+
+    public static void postJson(
+            String url,
+            Map<String, String> requestHeaders,
+            Map<String, Object> requestLineParameters,
+            String content,
+            ResponseCallback callback
+    ) {
+        if (null == requestHeaders) {
+            requestHeaders = new HashMap<>(1);
+        }
+        requestHeaders.put("Content-Type", "application/json");
+        post(url, requestHeaders, requestLineParameters, new StringEntity(content, "utf-8"), callback);
+    }
+
+    public static void postWWW(
+            String url,
+            Map<String, String> requestHeaders,
+            Map<String, Object> requestLineParameters,
+            Map<String, Object> requestBodyParameters,
+            ResponseCallback callback
+    ) {
+        // application/x-www-form-urlencoded
+        List<NameValuePair> dumpPair = new ArrayList<>();
+        for (Map.Entry<String, Object> item : requestBodyParameters.entrySet()) {
+            dumpPair.add(new BasicNameValuePair(item.getKey(), item.getValue().toString()));
+        }
+        try {
+            post(url, requestHeaders, requestLineParameters, new UrlEncodedFormEntity(dumpPair, "utf-8"), callback);
+        } catch (UnsupportedEncodingException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public static void postForm(
+            String url,
+            Map<String, String> requestHeaders,
+            Map<String, Object> requestLineParameters,
+            Map<String, Object> requestBodyParameters,
+            ResponseCallback callback
+    ) {
+        // multipart/form-data
+        MultipartEntityBuilder formBuilder = MultipartEntityBuilder.create();
+        for (Map.Entry<String, Object> item : requestBodyParameters.entrySet()) {
+            formBuilder.addTextBody(item.getKey(), item.getValue().toString());
+        }
+        post(url, requestHeaders, requestLineParameters, formBuilder.build(), callback);
     }
 }
